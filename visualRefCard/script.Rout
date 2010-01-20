@@ -1,0 +1,214 @@
+
+R version 2.10.0 (2009-10-26)
+Copyright (C) 2009 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez 'license()' ou 'licence()' pour plus de détails.
+
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez 'contributors()' pour plus d'information et
+'citation()' pour la façon de le citer dans les publications.
+
+Tapez 'demo()' pour des démonstrations, 'help()' pour l'aide
+en ligne ou 'help.start()' pour obtenir l'aide au format HTML.
+Tapez 'q()' pour quitter R.
+
+[Sauvegarde de la session précédente restaurée]
+
+> #library(visualR);
+> source("../R/seeR.R");
+> 
+> plotR <- function(expr, file) {
++   pdf(file);
++   par(mar=c(0,0,0,0));
++   seeR(expr);
++   dev.off();
++ }
+> 
+> # pb avec les listes récursives : list.rec, list.complex
+> plotR("c(\"oui\", 1:3, FALSE)", "conversion.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("sum(c(1, 2, 3, 4))", "sum.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1:3, TRUE)[1]", "list_extract_simple.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+3: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1:3, TRUE)[[1]]", "list_extract_double.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+3: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1:3)", "list.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1:3, TRUE)", "list_twotypes.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(c(1, 2))", "list_onetype.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1, 2, 3, 4, list(1:4), 1:4)", "list_complex.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+3: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+4: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(list(1:3))", "list_rec.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+3: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1, 2, 3, 4)", "list_enumerate.pdf");
+null device 
+          1 
+Message d'avis :
+In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("5:8 > 6", "opererator_gt.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("c(1, 2, 3, 4) + 1", "operator_add.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("5:8", "operator_sequence.pdf");
+null device 
+          1 
+Message d'avis :
+In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> m <- matrix(1:6, 2);
+> plotR("nrow(m)", "nrow.pdf")
+null device 
+          1 
+Message d'avis :
+In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("matrix(1:12, 3)", "matrix.pdf")
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("as.vector(matrix(1:12, 3) + 3)", "as_vector.pdf")
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+3: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+4: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1:4, matrix(1:4, 2), 2, 3, 4)", "list_matrix.pdf");
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+3: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+4: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("list(1:3, matrix(1:4,2), c(T, F, T))", "ordre.pdf") # illustre les problèmes d'odres dans la résolution des opérateurs
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+3: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+4: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+5: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("1:10 + 2", "precedence.pdf")
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("strsplit(c(\"un\", \"deux\", \"trois\"), \"[aeio]\")", "strsplit.pdf")
+null device 
+          1 
+Messages d'avis :
+1: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+2: In if (as.character(call) == "l") stop("bug to be corrected; the symbol \"l\" must not be used") :
+  la condition a une longueur > 1 et seul le premier élément est utilisé
+> plotR("strsplit(c(\"un\", \"deux\", \"trois\"), c(\"u\", \"e\", \"r\"))", "strsplit_2.pdf)
++ 
+> proc.time()
+utilisateur     système      écoulé 
+      5.697       0.055       5.768 
