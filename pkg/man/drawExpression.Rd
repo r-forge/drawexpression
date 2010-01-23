@@ -15,11 +15,11 @@
 }
 
 \usage{
-drawExpression(exprs, draw.index = FALSE, draw.names = FALSE, filename = NULL)
+drawExpression(expr, draw.index = FALSE, draw.names = FALSE, filename = NULL)
 }
 
 \arguments{
-  \item{exprs}{
+  \item{expr}{
    An R expression
 }
   \item{draw.index}{
@@ -47,4 +47,8 @@ Sylvain Loiseau
   drawExpression("matrix(1:4, 2)");
   drawExpression("list(1:4, matrix(1:4, 2), 2, 3, 4)");
   drawExpression("c(1, 2, 3:5) > 2");
+
+  x <- 1:4
+  drawExpression("x");
+  drawExpression("sum(x)");
 }

@@ -20,19 +20,19 @@ library(grid);
 
 debuging <- FALSE;
 
-drawExpression <- function (exprs, draw.index=FALSE, draw.names=FALSE, filename=NULL) {
-  if (mode(exprs) != "character") {
-    stop("exprs must be a characters string");
+drawExpression <- function (expr, draw.index=FALSE, draw.names=FALSE, filename=NULL) {
+  if (mode(expr) != "character") {
+    stop("expr must be a characters string");
   }
 
-  if (length(exprs) != 1) {
-    stop("exprs must be a characters string of length 1");
+  if (length(expr) != 1) {
+    stop("expr must be a characters string of length 1");
   }
 
   ## Build the syntax tree
-  e <- parse(text=exprs);
+  e <- parse(text=expr);
   if (mode(e) != "expression") {
-    stop(paste(exprs, "must be a parsable expression"));
+    stop(paste(expr, "must be a parsable expression"));
   }
 
   ## Create an intermediary representation
@@ -40,6 +40,7 @@ drawExpression <- function (exprs, draw.index=FALSE, draw.names=FALSE, filename=
 
   ## draw this representation with grid function
   .drawTree(drawable, filename=filename);
+
 }
 
 ########################################################
@@ -165,25 +166,12 @@ drawExpression <- function (exprs, draw.index=FALSE, draw.names=FALSE, filename=
   totalHeight <- sum(heights);
   maxWidth <- max(widths);
 
-  height_inches <- as.numeric(convertUnit(totalHeight, "inches"));
-  width_inches <- as.numeric(convertUnit(maxWidth, "inches"));
-#  print(dev.list());
-#  print(dev.cur());
-
   if(!is.null(filename)) {
+    height_inches <- as.numeric(convertUnit(totalHeight, "inches"));
+    width_inches <- as.numeric(convertUnit(maxWidth, "inches"));
     pdf(filename, height=height_inches + .2, width=width_inches + .2, onefile=TRUE);
   }
 
-#   print(dev.list());
-#   print(dev.cur());
-# print("dev.size");
-# print(dev.size("cm"));
-
-#  par("mar"=c(0, 0, 0, 0));
-#  par("fin"=c(width_inches, height_inches)); # start a new plot
-# par("pin"=c(width_inches, height_inches));
-#  plot.new();
-  
   listvp <- viewport(x=.5, y=.5, width=maxWidth, height=totalHeight);
   pushViewport(listvp);
   if (debuging) grid.rect(gp=gpar(lty="longdash"));
@@ -193,6 +181,7 @@ drawExpression <- function (exprs, draw.index=FALSE, draw.names=FALSE, filename=
     grid.draw(line);
   }
   popViewport();
+
   if(!is.null(filename)) {
     dev.off();
   }
