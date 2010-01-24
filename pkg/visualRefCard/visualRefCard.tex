@@ -19,7 +19,7 @@ Universit\'e de Caen--Basse Normandie
 \section{Anatomy of a vector}
 % ----------------------------
 
-All elements of a vector have a common mode, one of logical, character, and numeric.
+All elements of a vector have a common mode, one of character, logical, and numeric.
 
 \begin{tabular}{ccc}
 \includegraphics{v_char} & \includegraphics{v_log} & \includegraphics{v_num}\\
@@ -88,29 +88,6 @@ When extracting, nothing prevent you from reordering elements or extracting  sev
 
 \includegraphics{extract_repeating}
 
-\section{Type conversion}
-% ----------------------------
-
-c() coerce arguments to a common mode -- all elements of a vector always have a common mode.
-
-The character mode always win. Logical always loose.
-
-\begin{tabular}{cc}
-\includegraphics{conversion_1} & \includegraphics{conversion}\\
-\end{tabular}
-
-\section{Index}
-% ----------------------------
-
-Some useful functions give index rather than the actual values.
-
-\includegraphics{which}
-
-\begin{tabular}{cc}
-\includegraphics{order} & \includegraphics{order2}\\
-\includegraphics{which_min} & \includegraphics{which_max}\\
-\end{tabular}
-
 \section{Operator}
 % ----------------------------
 
@@ -167,18 +144,10 @@ Some functions for numeric vectors.
 
 TODO : table
 
-\section{Sorting}
-% ----------------------------
-
-Numeric and character vectors can be sorted. Names are preserved.
-
-\begin{tabular}{cc}
-\includegraphics{sort} & \includegraphics{sort2}\\
-\includegraphics{sort_char} & \includegraphics{sort_char_names} \\
-\end{tabular}
-
 \section{Some string functions}
 % ----------------------------
+
+nchar() count the number of characters in all strings of a character vector.
 
 \includegraphics{nchar}
 
@@ -192,6 +161,45 @@ Recycling and vectorization are useful with paste(), which concatenates characte
 You can paste more than two vectors of characters:
 
 \includegraphics{paste5}
+
+\section{Sorting}
+% ----------------------------
+
+Numeric and character vectors can be sorted. Names are preserved.
+
+\begin{tabular}{cc}
+\includegraphics{sort} & \includegraphics{sort2}\\
+\includegraphics{sort_char} & \includegraphics{sort_char_names} \\
+\end{tabular}
+
+\section{Type conversion}
+% ----------------------------
+
+c() coerce arguments to a common mode -- all elements of a vector always have a common mode.
+
+The character mode always wins. Logical always looses.
+
+\begin{tabular}{cc}
+\includegraphics{conversion_1} & \includegraphics{conversion}\\
+\end{tabular}
+
+% TODO : more on type conversion. Exemple of functions silently converting their argument. nchar() for instance, on numeric.
+
+\section{Index}
+% ----------------------------
+
+Some useful functions give index rather than the actual values.
+
+\includegraphics{which}
+
+\begin{tabular}{cc}
+\includegraphics{order} & \includegraphics{order2}\\
+\includegraphics{which_min} & \includegraphics{which_max}\\
+\end{tabular}
+
+% TODO : This is particularly usefull in very common situation where two or
+% more vectors are "aligned", or synchronized, and you don't want to loose the
+% initial order
 
 \section{Precedence}
 % ----------------------------
@@ -213,12 +221,20 @@ The order in which the operators are written in the code does not matter!
 
 TODO
 
-There is numerous situation where values of a vector are seen as modalities, allowing for grouping, etc. (split, rowsum, tapply, etc.)
+There is numerous situations where values of a vector are seen as modalities, allowing for grouping, etc. (split, rowsum, tapply, by, etc.)
 
 \section{Matrix}
 % ----------------------------
 
 \subsection{Creation}
+
+Matrix are created with the matrix() function. It takes three main arguments: a
+vector (any type and any length) gives the content, two vectors (numeric and
+length 1) give the numbers of rows and columns. If only one dimension is given,
+the second one is deduced from the length of the vector. If both dimensions are
+given and the vector length do not match the number of cells, the vector is
+recycled to fill the matrix. The matrix is filled by column; this behavior may
+be changed with the option byrow. 
 
 \begin{tabular}{cc}
 \includegraphics{matrix} & \includegraphics{matrix_arg}\\
@@ -227,6 +243,9 @@ There is numerous situation where values of a vector are seen as modalities, all
 \end{tabular}
 
 \subsection{Extraction with a matrix}
+
+Matrices have two dimensions and you must provide extractors for each of them.
+You first extract the rows, then the columns.
 
 \begin{tabular}{cc}
 \includegraphics{matrix_extraction} & \includegraphics{matrix_extraction3}\\
@@ -250,9 +269,21 @@ How does extraction in a matrix preserve names? No name is preserved if you extr
 \includegraphics{nrow.pdf} & \includegraphics{ncol.pdf} & \includegraphics{dim.pdf}
 \end{tabular}
 
-\begin{tabular}{ccc}
+\begin{tabular}{cc}
 \includegraphics{rownames.pdf} & \includegraphics{colnames.pdf}
 \end{tabular}
+
+\begin{tabular}{cc}
+\includegraphics{length_matrix.pdf} & \includegraphics{mode_matrix.pdf}
+\end{tabular}
+
+A matrix is very similar to a vector: it has a mode and a length. It has also
+two dimensions and, then, it has two vector of names and it takes two index
+vectors inside extraction operator. But you can often see a matrix as a vector.
+For instance, if you use only one index vector inside the extraction operator,
+it extracts from the underlying, column-filled vector:
+
+\includegraphics{matrix_extraction_as_vector}
 
 \subsection{Summing a matrix}
 
@@ -262,7 +293,7 @@ How does extraction in a matrix preserve names? No name is preserved if you extr
 \includegraphics{rowSums} & \includegraphics{colSums}
 \end{tabular}
 
-rowsum() perform a colSums on each group of rows given by the second argument.
+rowsum() performs a colSums on each group of rows given by the second argument.
 
 \includegraphics{rowsum} 
 
@@ -323,7 +354,7 @@ TODO...
 
 \subsection{Extraction}
 
-Extracting in a list. The next two figures show the difference beween [ and [[ operator on list: the first create a sublist (it extracts elements, exactly as it extract elements from a vector), while the second is completely different: it give the content of one (and only one) element of a list.
+Extracting in a list. The next two figures show the difference beween [ and [[ operator on list: the first create a sublist (it extracts elements, exactly as it extracts elements from a vector), while the second is completely different: it give the content of one (and only one) element of a list.
 
 \begin{tabular}{cc}
 \includegraphics{list_extract_simple.pdf} & \includegraphics{list_extract_double.pdf}

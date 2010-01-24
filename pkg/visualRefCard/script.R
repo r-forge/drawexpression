@@ -112,6 +112,9 @@ plotR("min(x)", "min.pdf");
 plotR("crossprod(x)", "crossprod.pdf");
 plotR("cumsum(x)", "cumsum.pdf");
 
+plotR("table(c(1:4, 2:5, 4:7))", "table.pdf");
+
+
 table.v <- c("a", "b", "c", "a", "c", "d");
 #plotR("table(table.v)", "table.pdf");
 
@@ -179,6 +182,10 @@ m <- matrix(1:6, 2);
 plotR("nrow(m)", "nrow.pdf")
 plotR("ncol(m)", "ncol.pdf")
 plotR("dim(m)", "dim.pdf")
+
+plotR("length(m)", "length_matrix.pdf")
+plotR("mode(m)", "mode_matrix.pdf")
+plotR("m[3]", "matrix_extraction_as_vector.pdf")
 
 plotR("matrix(1:6, nrow=3)", "matrix.pdf")
 plotR("matrix(1:6, 3)", "matrix_arg.pdf")
