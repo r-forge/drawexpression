@@ -336,3 +336,8 @@ plotR("df[1:2, 1:2]", "dataframe_extracting.pdf")
 plotR("df[1, ]", "dataframe_extracting_row.pdf")
 plotR("df[, 1]", "dataframe_extracting_column.pdf")
 
+plotR("as.matrix(df)", "dataframe_as_matrix.pdf")
+m <- matrix(1:6, 2)
+plotR("as.data.frame(m)", "dataframe_as_data_frame.pdf")
+plotR("as.list(df)", "dataframe_as_list.pdf")
+

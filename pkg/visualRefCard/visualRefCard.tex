@@ -359,6 +359,11 @@ rowsum() performs a colSums on each group of rows given by the second argument.
 \includegraphics{cbind.pdf} & \includegraphics{rbind.pdf}\\
 \end{tabular}
 
+\begin{tabular}{c}
+\includegraphics{t.pdf}\\
+\end{tabular}
+
+
 \section{list}
 % ----------------------------
 
@@ -517,24 +522,23 @@ categorial values, boolean values, etc.
 In a data frame, each row represent an individual, and each column represent a
 random variable. This is like a matrix, except that the column may have
 different type. This is like a list, since it may mix vectors of different
-type, but all vectors must have the same length. Data frame may often be
-seen as matrix, or as list.
+type, but all vectors must have the same length.
 
 From an internal representation, a data frame is a list of vector, each element
-of the list beeing a column. Thus, it is represented here with dotted line,
-like a list, and solid line in column :
+of the list beeing a column. Thus, data frame may be created with the function
+data.frame() by enumerating its columns. It is represented here with dotted
+line, like a list, and solid line in column :
 
 \begin{tabular}{c}
 \includegraphics{dataframe.pdf}
 \end{tabular}
 
-Data frame may be created by enumerating its columns.
-
-Like a matrix, a data frame may have rowname. In fact, unlike a matrix or a
-list, a data frame has \emph{always} row and column name. Below, you see that
-automatic default row names have been added, corresponding to the index.
-rownames() and colnames() may be used with data frame as with matrix. Default
-colum name would have been added as well for unnamed column. 
+However, like a matrix and unlike a list, a data frame may have rowname. In
+fact, unlike a matrix or a list, a data frame has \emph{always} row and column
+names. You can see from the previous exemple that automatic default row names
+have been added, corresponding to the index. rownames() and colnames() may be
+used with data frame as with matrix. Default colum name would have been added
+as well for unnamed column. 
 
 \subsection{Extraction}
 
@@ -544,8 +548,9 @@ Extracting is similar to extracting with matrix :
 \includegraphics{dataframe_extracting.pdf}
 \end{tabular}
 
-Note that row-extraction (left) and column-extraction (right) do not give the
-same data structure. Furthermore, in column extraction, the row name are lost:
+However, note that row-extraction (left) and column-extraction (right) do not
+give the same data structure. Furthermore, in column extraction, the row name
+are lost (right):
 
 \begin{tabular}{cc}
 \includegraphics{dataframe_extracting_row.pdf} & \includegraphics{dataframe_extracting_column.pdf}
@@ -553,20 +558,35 @@ same data structure. Furthermore, in column extraction, the row name are lost:
 
 \subsection{Subseting}
 
+% subset
+
 \subsection{Merging}
 
 Merge() use the columns with same name for combining two matrices:
 
-\begin{tabular}{cc}
-\includegraphics{merge.pdf} & \includegraphics{t.pdf}\\
+\begin{tabular}{c}
+\includegraphics{merge.pdf}
 \end{tabular}
 
 As shown by the graphical presentation, merge() may operate on both matrix or
 data frame, but create data frame. Columns to be used for combining may be
 given explicitly
 
+\subsection{Converting}
 
-% subset
+From and toward matrix:
+
+\begin{tabular}{cc}
+\includegraphics{dataframe_as_matrix} & \includegraphics{dataframe_as_data_frame}\\
+\end{tabular}
+
+as.data.frame create default row and column names: data frame cannot be without
+row and column names. Row and column names are lost with as.matrix. Column names are kept with as.list():
+
+\begin{tabular}{c}
+\includegraphics{dataframe_as_list}
+\end{tabular}
+
 
 % Pour l'introduction : reprendre Baayen, sort, subset...
 
