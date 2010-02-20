@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.11.12)  23 JAN 2010 22:17
+This is pdfTeX, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.11.12)  20 FEB 2010 18:32
 entering extended mode
 **visualRefCard.tex
 (./visualRefCard.tex
@@ -407,251 +407,374 @@ File: conversion_1.pdf Graphic file (type pdf)
 <use conversion_1.pdf> <conversion.pdf, id=284, 210.7875pt x 74.2775pt>
 File: conversion.pdf Graphic file (type pdf)
 
-<use conversion.pdf> <which.pdf, id=285, 331.2375pt x 54.2025pt>
+<use conversion.pdf> <conversion_nchar.pdf, id=285, 140.525pt x 54.2025pt>
+File: conversion_nchar.pdf Graphic file (type pdf)
+
+<use conversion_nchar.pdf>
+<conversion_as_character.pdf, id=286, 240.9pt x 74.2775pt>
+File: conversion_as_character.pdf Graphic file (type pdf)
+
+<use conversion_as_character.pdf> <which.pdf, id=287, 331.2375pt x 54.2025pt>
 File: which.pdf Graphic file (type pdf)
 
-<use which.pdf> <order.pdf, id=286, 144.54pt x 54.2025pt>
+<use which.pdf> [5 <./paste5.pdf> <./sort.pdf> <./sort2.pdf> <./sort_char.pdf> 
+<./sort_char_names.pdf> <./conversion_1.pdf> <./conversion.pdf> <./conversion_n
+char.pdf> <./conversion_as_character.pdf>]
+<order.pdf, id=327, 144.54pt x 54.2025pt>
 File: order.pdf Graphic file (type pdf)
  <use order.pdf>
-<order2.pdf, id=287, 166.6225pt x 81.30376pt>
+<order2.pdf, id=328, 166.6225pt x 81.30376pt>
 File: order2.pdf Graphic file (type pdf)
  <use order2.pdf>
-<which_min.pdf, id=288, 156.585pt x 54.2025pt>
+<which_min.pdf, id=329, 156.585pt x 54.2025pt>
 File: which_min.pdf Graphic file (type pdf)
  <use which_min.pdf>
-<which_max.pdf, id=289, 159.59625pt x 54.2025pt>
+<which_max.pdf, id=330, 159.59625pt x 54.2025pt>
 File: which_max.pdf Graphic file (type pdf)
- <use which_max.pdf> [5 <./paste5.pdf> <./sort.pdf> <./sort2.pdf> <./sort_char.
-pdf> <./sort_char_names.pdf> <./conversion_1.pdf> <./conversion.pdf> <./which.p
-df>]
-<precedence.pdf, id=325, 183.68625pt x 74.2775pt>
+ <use which_max.pdf>
+<v_forms.pdf, id=331, 119.44624pt x 34.1275pt>
+File: v_forms.pdf Graphic file (type pdf)
+ <use v_forms.pdf>
+<v_frequencies.pdf, id=332, 102.3825pt x 34.1275pt>
+File: v_frequencies.pdf Graphic file (type pdf)
+ <use v_frequencies.pdf>
+<which_max_2.pdf, id=333, 322.20375pt x 74.2775pt>
+File: which_max_2.pdf Graphic file (type pdf)
+ <use which_max_2.pdf>
+<matrix_order.pdf, id=334, 250.9375pt x 209.78375pt>
+File: matrix_order.pdf Graphic file (type pdf)
+ <use matrix_order.pdf>
+<precedence.pdf, id=335, 183.68625pt x 74.2775pt>
 File: precedence.pdf Graphic file (type pdf)
  <use precedence.pdf>
 File: operator_gt.pdf Graphic file (type pdf)
 
-<use operator_gt.pdf> <operator_gt_inv.pdf, id=326, 184.69pt x 74.2775pt>
+<use operator_gt.pdf> [6 <./which.pdf> <./order.pdf> <./order2.pdf> <./which_mi
+n.pdf> <./which_max.pdf> <./v_forms.pdf> <./v_frequencies.pdf> <./which_max_2.p
+df> <./matrix_order.pdf>] <operator_gt_inv.pdf, id=375, 184.69pt x 74.2775pt>
 File: operator_gt_inv.pdf Graphic file (type pdf)
 
-<use operator_gt_inv.pdf> <matrix.pdf, id=327, 238.8925pt x 103.38625pt>
+<use operator_gt_inv.pdf> <matrix.pdf, id=376, 238.8925pt x 103.38625pt>
 File: matrix.pdf Graphic file (type pdf)
 
-<use matrix.pdf> <matrix_arg.pdf, id=328, 190.7125pt x 103.38625pt>
+<use matrix.pdf> <matrix_arg.pdf, id=377, 190.7125pt x 103.38625pt>
 File: matrix_arg.pdf Graphic file (type pdf)
 
-<use matrix_arg.pdf> <matrix_byrow.pdf, id=329, 301.125pt x 103.38625pt>
+<use matrix_arg.pdf> <matrix_byrow.pdf, id=378, 301.125pt x 103.38625pt>
 File: matrix_byrow.pdf Graphic file (type pdf)
 
-<use matrix_byrow.pdf> <matrix_nbcol.pdf, id=330, 234.8775pt x 89.33376pt>
+<use matrix_byrow.pdf> <matrix_nbcol.pdf, id=379, 234.8775pt x 89.33376pt>
 File: matrix_nbcol.pdf Graphic file (type pdf)
 
-<use matrix_nbcol.pdf> <matrix_logical.pdf, id=331, 277.035pt x 68.255pt>
+<use matrix_nbcol.pdf> <matrix_logical.pdf, id=380, 277.035pt x 68.255pt>
 File: matrix_logical.pdf Graphic file (type pdf)
 
 <use matrix_logical.pdf>
-Overfull \hbox (74.51718pt too wide) in paragraph at lines 239--244
+Overfull \hbox (74.51718pt too wide) in paragraph at lines 264--269
 [][] 
  []
 
-[6 <./order.pdf> <./order2.pdf> <./which_min.pdf> <./which_max.pdf> <./preceden
-ce.pdf> <./operator_gt_inv.pdf>]
-<matrix_extraction.pdf, id=360, 128.48pt x 68.255pt>
+<matrix_extraction.pdf, id=381, 128.48pt x 68.255pt>
 File: matrix_extraction.pdf Graphic file (type pdf)
 
 <use matrix_extraction.pdf>
-<matrix_extraction3.pdf, id=361, 188.705pt x 117.43875pt>
+<matrix_extraction3.pdf, id=382, 188.705pt x 117.43875pt>
 File: matrix_extraction3.pdf Graphic file (type pdf)
 
 <use matrix_extraction3.pdf>
-<matrix_extraction2.pdf, id=362, 158.5925pt x 103.38625pt>
+<matrix_extraction2.pdf, id=383, 158.5925pt x 103.38625pt>
 File: matrix_extraction2.pdf Graphic file (type pdf)
 
 <use matrix_extraction2.pdf>
-<matrix_extraction4.pdf, id=363, 176.66pt x 106.3975pt>
+<matrix_extraction4.pdf, id=384, 176.66pt x 106.3975pt>
 File: matrix_extraction4.pdf Graphic file (type pdf)
 
 <use matrix_extraction4.pdf>
-<matrix_extraction5.pdf, id=364, 246.9225pt x 106.3975pt>
+<matrix_extraction5.pdf, id=385, 246.9225pt x 106.3975pt> [7 <./precedence.pdf>
+ <./operator_gt_inv.pdf> <./matrix.pdf> <./matrix_arg.pdf> <./matrix_byrow.pdf>
+ <./matrix_nbcol.pdf> <./matrix_logical.pdf>]
 File: matrix_extraction5.pdf Graphic file (type pdf)
+ <use matrix_extraction5.pdf>
+<matrix_extraction_rows.pdf, id=419, 110.4125pt x 68.255pt>
+File: matrix_extraction_rows.pdf Graphic file (type pdf)
 
-<use matrix_extraction5.pdf>
-<matrix_extraction8.pdf, id=365, 148.555pt x 106.3975pt>
+<use matrix_extraction_rows.pdf>
+<matrix_extraction_columns.pdf, id=420, 110.4125pt x 68.255pt>
+File: matrix_extraction_columns.pdf Graphic file (type pdf)
+
+<use matrix_extraction_columns.pdf>
+<matrix_extraction8.pdf, id=421, 148.555pt x 106.3975pt>
 File: matrix_extraction8.pdf Graphic file (type pdf)
 
 <use matrix_extraction8.pdf>
-<matrix_extraction6.pdf, id=366, 161.60374pt x 146.5475pt>
+<matrix_extraction6.pdf, id=422, 161.60374pt x 146.5475pt>
 File: matrix_extraction6.pdf Graphic file (type pdf)
 
 <use matrix_extraction6.pdf>
-<matrix_extraction7.pdf, id=367, 173.64874pt x 160.6pt>
+<matrix_extraction7.pdf, id=423, 173.64874pt x 160.6pt>
 File: matrix_extraction7.pdf Graphic file (type pdf)
 
 <use matrix_extraction7.pdf>
-Overfull \hbox (2.76566pt too wide) in paragraph at lines 262--265
+Overfull \hbox (2.76566pt too wide) in paragraph at lines 293--296
 [][] [] [] 
  []
 
-[7 <./matrix.pdf> <./matrix_arg.pdf> <./matrix_byrow.pdf> <./matrix_nbcol.pdf> 
-<./matrix_logical.pdf> <./matrix_extraction.pdf> <./matrix_extraction3.pdf> <./
-matrix_extraction2.pdf> <./matrix_extraction4.pdf> <./matrix_extraction5.pdf>]
-<nrow.pdf, id=412, 116.435pt x 68.255pt>
+<nrow.pdf, id=424, 116.435pt x 68.255pt>
 File: nrow.pdf Graphic file (type pdf)
  <use nrow.pdf>
-<ncol.pdf, id=413, 112.42pt x 68.255pt>
+<ncol.pdf, id=425, 112.42pt x 68.255pt>
 File: ncol.pdf Graphic file (type pdf)
  <use ncol.pdf>
-<dim.pdf, id=414, 109.40875pt x 68.255pt>
+<dim.pdf, id=426, 109.40875pt x 68.255pt>
 File: dim.pdf Graphic file (type pdf)
- <use dim.pdf>
-<rownames.pdf, id=415, 166.6225pt x 106.3975pt>
+ <use dim.pdf> [8 <./matrix_extraction.pdf> <./matrix_extraction3.pdf> <./matri
+x_extraction2.pdf> <./matrix_extraction4.pdf> <./matrix_extraction5.pdf> <./mat
+rix_extraction_rows.pdf> <./matrix_extraction_columns.pdf> <./matrix_extraction
+8.pdf> <./matrix_extraction6.pdf> <./matrix_extraction7.pdf>] <rownames.pdf, id
+=470, 166.6225pt x 106.3975pt>
 File: rownames.pdf Graphic file (type pdf)
- <use rownames.pdf>
-<colnames.pdf, id=416, 162.6075pt x 106.3975pt>
+
+<use rownames.pdf> <colnames.pdf, id=471, 162.6075pt x 106.3975pt>
 File: colnames.pdf Graphic file (type pdf)
- <use colnames.pdf>
-<length_matrix.pdf, id=417, 123.46124pt x 68.255pt>
+
+<use colnames.pdf> <length_matrix.pdf, id=472, 123.46124pt x 68.255pt>
 File: length_matrix.pdf Graphic file (type pdf)
- <use length_matrix.pdf>
-<mode_matrix.pdf, id=418, 120.45pt x 68.255pt>
+
+<use length_matrix.pdf> <mode_matrix.pdf, id=473, 120.45pt x 68.255pt>
 File: mode_matrix.pdf Graphic file (type pdf)
- <use mode_matrix.pdf>
-<matrix_extraction_as_vector.pdf, id=419, 98.3675pt x 68.255pt>
+
+<use mode_matrix.pdf>
+<matrix_extraction_as_vector.pdf, id=474, 98.3675pt x 68.255pt>
 File: matrix_extraction_as_vector.pdf Graphic file (type pdf)
 
 <use matrix_extraction_as_vector.pdf>
-<matrix_sum.pdf, id=420, 113.42375pt x 68.255pt>
-File: matrix_sum.pdf Graphic file (type pdf)
- <use matrix_sum.pdf>
-<rowSums.pdf, id=421, 140.525pt x 68.255pt>
-File: rowSums.pdf Graphic file (type pdf)
- <use rowSums.pdf>
-<colSums.pdf, id=422, 136.51pt x 68.255pt>
-File: colSums.pdf Graphic file (type pdf)
- <use colSums.pdf> [8 <./matrix_extraction8.pdf> <./matrix_extraction6.pdf> <./
-matrix_extraction7.pdf> <./nrow.pdf> <./ncol.pdf> <./dim.pdf> <./rownames.pdf> 
-<./colnames.pdf> <./length_matrix.pdf> <./mode_matrix.pdf> <./matrix_extraction
-_as_vector.pdf> <./matrix_sum.pdf>]
-<rowsum.pdf, id=474, 206.7725pt x 140.525pt>
-File: rowsum.pdf Graphic file (type pdf)
- <use rowsum.pdf>
-<as_vector.pdf, id=475, 139.52126pt x 68.255pt>
-File: as_vector.pdf Graphic file (type pdf)
- <use as_vector.pdf>
-<matrix_operator.pdf, id=476, 90.3375pt x 83.31125pt>
-File: matrix_operator.pdf Graphic file (type pdf)
+<prop_table1.pdf, id=475, 375.4025pt x 83.31125pt>
+File: prop_table1.pdf Graphic file (type pdf)
+ <use prop_table1.pdf>
+<prop_table_row.pdf, id=476, 368.37625pt x 83.31125pt>
+File: prop_table_row.pdf Graphic file (type pdf)
 
-<use matrix_operator.pdf> <cbind.pdf, id=477, 214.8025pt x 157.58875pt>
-File: cbind.pdf Graphic file (type pdf)
+<use prop_table_row.pdf>
+<prop_table_column.pdf, id=477, 368.37625pt x 83.31125pt>
+File: prop_table_column.pdf Graphic file (type pdf)
 
-<use cbind.pdf> <rbind.pdf, id=478, 212.795pt x 186.6975pt>
-File: rbind.pdf Graphic file (type pdf)
- <use rbind.pdf>
-<merge.pdf, id=479, 233.87375pt x 128.48pt>
-File: merge.pdf Graphic file (type pdf)
- <use merge.pdf>
-<t.pdf, id=480, 93.34875pt x 97.36375pt>
-File: t.pdf Graphic file (type pdf)
- <use t.pdf> [9 <./rowSums.pdf> <./colSums.pdf> <./rowsum.pdf> <./as_vector.pdf
-> <./matrix_operator.pdf> <./cbind.pdf> <./rbind.pdf> <./merge.pdf>]
-<list_enumerate.pdf, id=516, 170.6375pt x 65.24374pt>
-File: list_enumerate.pdf Graphic file (type pdf)
- <use list_enumerate.pdf>
-<list_onetype.pdf, id=517, 149.55875pt x 85.31876pt>
-File: list_onetype.pdf Graphic file (type pdf)
- <use list_onetype.pdf>
-<list_twotypes.pdf, id=518, 166.6225pt x 85.31876pt>
-File: list_twotypes.pdf Graphic file (type pdf)
- <use list_twotypes.pdf>
-<list_matrix.pdf, id=519, 304.13625pt x 134.5025pt>
-File: list_matrix.pdf Graphic file (type pdf)
- <use list_matrix.pdf>
-Overfull \hbox (9.27359pt too wide) in paragraph at lines 335--338
+<use prop_table_column.pdf> [9 <./nrow.pdf> <./ncol.pdf> <./dim.pdf> <./rowname
+s.pdf> <./colnames.pdf> <./length_matrix.pdf> <./mode_matrix.pdf> <./matrix_ext
+raction_as_vector.pdf> <./prop_table1.pdf> <./prop_table_row.pdf> <./prop_table
+_column.pdf>] <margin_table1.pdf, id=525, 156.585pt x 83.31125pt>
+File: margin_table1.pdf Graphic file (type pdf)
+
+<use margin_table1.pdf>
+<margin_table_row.pdf, id=526, 245.91875pt x 94.3525pt>
+File: margin_table_row.pdf Graphic file (type pdf)
+
+<use margin_table_row.pdf>
+<margin_table_column.pdf, id=527, 245.91875pt x 94.3525pt>
+File: margin_table_column.pdf Graphic file (type pdf)
+
+<use margin_table_column.pdf>
+Overfull \hbox (30.35228pt too wide) in paragraph at lines 333--337
 [][] 
  []
 
-<list_complex.pdf, id=520, 345.29pt x 128.48pt>
+<matrix_sum.pdf, id=528, 113.42375pt x 68.255pt>
+File: matrix_sum.pdf Graphic file (type pdf)
+ <use matrix_sum.pdf>
+<rowSums.pdf, id=529, 140.525pt x 68.255pt>
+File: rowSums.pdf Graphic file (type pdf)
+ <use rowSums.pdf>
+<colSums.pdf, id=530, 136.51pt x 68.255pt>
+File: colSums.pdf Graphic file (type pdf)
+ <use colSums.pdf>
+<rowsum.pdf, id=531, 206.7725pt x 140.525pt>
+File: rowsum.pdf Graphic file (type pdf)
+ <use rowsum.pdf>
+<as_vector.pdf, id=532, 139.52126pt x 68.255pt>
+File: as_vector.pdf Graphic file (type pdf)
+ <use as_vector.pdf>
+<matrix_operator.pdf, id=533, 90.3375pt x 83.31125pt>
+File: matrix_operator.pdf Graphic file (type pdf)
+
+<use matrix_operator.pdf> <cbind.pdf, id=534, 214.8025pt x 157.58875pt>
+File: cbind.pdf Graphic file (type pdf)
+
+<use cbind.pdf> <rbind.pdf, id=535, 212.795pt x 186.6975pt>
+File: rbind.pdf Graphic file (type pdf)
+ <use rbind.pdf>
+[10 <./margin_table1.pdf> <./margin_table_row.pdf> <./margin_table_column.pdf> 
+<./matrix_sum.pdf> <./rowSums.pdf> <./colSums.pdf> <./rowsum.pdf> <./as_vector.
+pdf> <./matrix_operator.pdf>]
+<list_enumerate.pdf, id=575, 170.6375pt x 65.24374pt>
+File: list_enumerate.pdf Graphic file (type pdf)
+ <use list_enumerate.pdf>
+<list_onetype.pdf, id=576, 149.55875pt x 85.31876pt>
+File: list_onetype.pdf Graphic file (type pdf)
+ <use list_onetype.pdf>
+<list_twotypes.pdf, id=577, 166.6225pt x 85.31876pt>
+File: list_twotypes.pdf Graphic file (type pdf)
+ <use list_twotypes.pdf>
+<list_matrix.pdf, id=578, 304.13625pt x 134.5025pt>
+File: list_matrix.pdf Graphic file (type pdf)
+ <use list_matrix.pdf>
+Overfull \hbox (9.27359pt too wide) in paragraph at lines 383--386
+[][] 
+ []
+
+<list_complex.pdf, id=579, 345.29pt x 128.48pt>
 File: list_complex.pdf Graphic file (type pdf)
  <use list_complex.pdf>
-<list_names.pdf, id=521, 233.87375pt x 65.24374pt>
+<list_names.pdf, id=580, 233.87375pt x 120.45pt>
 File: list_names.pdf Graphic file (type pdf)
  <use list_names.pdf>
-<list_length.pdf, id=522, 229.85875pt x 65.24374pt>
+<list_length.pdf, id=581, 229.85875pt x 65.24374pt> [11 <./cbind.pdf> <./rbind.
+pdf> <./list_enumerate.pdf> <./list_onetype.pdf> <./list_twotypes.pdf> <./list_
+matrix.pdf> <./list_complex.pdf>]
 File: list_length.pdf Graphic file (type pdf)
  <use list_length.pdf>
-<list_mode.pdf, id=523, 227.85126pt x 65.24374pt> [10 <./t.pdf> <./list_enumera
-te.pdf> <./list_onetype.pdf> <./list_twotypes.pdf> <./list_matrix.pdf> <./list_
-complex.pdf> <./list_names.pdf>]
+<list_mode.pdf, id=613, 227.85126pt x 65.24374pt>
 File: list_mode.pdf Graphic file (type pdf)
  <use list_mode.pdf>
-<list_extract_simple.pdf, id=555, 207.77625pt x 117.43875pt>
+<list_extract_simple.pdf, id=614, 207.77625pt x 117.43875pt>
 File: list_extract_simple.pdf Graphic file (type pdf)
 
 <use list_extract_simple.pdf>
-<list_extract_double.pdf, id=556, 214.8025pt x 106.3975pt>
+<list_extract_double.pdf, id=615, 214.8025pt x 106.3975pt>
 File: list_extract_double.pdf Graphic file (type pdf)
 
 <use list_extract_double.pdf>
-<list_successive_extraction.pdf, id=557, 275.0275pt x 128.48pt>
+<list_successive_extraction.pdf, id=616, 275.0275pt x 128.48pt>
 File: list_successive_extraction.pdf Graphic file (type pdf)
 
 <use list_successive_extraction.pdf>
-<unlist.pdf, id=558, 225.84375pt x 65.24374pt>
+<list_extraction_1.pdf, id=617, 279.0425pt x 85.31876pt>
+File: list_extraction_1.pdf Graphic file (type pdf)
+
+<use list_extraction_1.pdf>
+<list_extraction_2.pdf, id=618, 272.01625pt x 97.36375pt>
+File: list_extraction_2.pdf Graphic file (type pdf)
+
+<use list_extraction_2.pdf>
+Overfull \hbox (89.5734pt too wide) in paragraph at lines 419--422
+[][] 
+ []
+
+[12 <./list_names.pdf> <./list_length.pdf> <./list_mode.pdf> <./list_extract_si
+mple.pdf> <./list_extract_double.pdf> <./list_successive_extraction.pdf>]
+<unlist.pdf, id=646, 225.84375pt x 65.24374pt>
 File: unlist.pdf Graphic file (type pdf)
  <use unlist.pdf>
-<aslist.pdf, id=559, 133.49875pt x 85.31876pt>
+<aslist.pdf, id=647, 133.49875pt x 85.31876pt>
 File: aslist.pdf Graphic file (type pdf)
  <use aslist.pdf>
-<split.pdf, id=560, 290.08376pt x 65.24374pt>
+<split.pdf, id=648, 290.08376pt x 86.3225pt>
 File: split.pdf Graphic file (type pdf)
- <use split.pdf> [11 <./list_length.pdf> <./list_mode.pdf> <./list_extract_simp
-le.pdf> <./list_extract_double.pdf> <./list_successive_extraction.pdf> <./unlis
-t.pdf> <./aslist.pdf>]
-<strsplit.pdf, id=592, 329.23pt x 85.31876pt>
+ <use split.pdf>
+<strsplit.pdf, id=649, 329.23pt x 85.31876pt>
 File: strsplit.pdf Graphic file (type pdf)
  <use strsplit.pdf>
-<strsplit_2.pdf, id=593, 420.57124pt x 85.31876pt>
+<strsplit_2.pdf, id=650, 420.57124pt x 85.31876pt>
 File: strsplit_2.pdf Graphic file (type pdf)
  <use strsplit_2.pdf>
-<substr.pdf, id=594, 182.6825pt x 54.2025pt>
+<substr.pdf, id=651, 182.6825pt x 54.2025pt>
 File: substr.pdf Graphic file (type pdf)
  <use substr.pdf>
-<substr_2.pdf, id=595, 289.08pt x 74.2775pt>
+<substr_2.pdf, id=652, 289.08pt x 74.2775pt>
 File: substr_2.pdf Graphic file (type pdf)
  <use substr_2.pdf>
-<substr_3.pdf, id=596, 427.5975pt x 74.2775pt>
+<substr_3.pdf, id=653, 427.5975pt x 74.2775pt> [13 <./list_extraction_1.pdf> <.
+/list_extraction_2.pdf> <./unlist.pdf> <./aslist.pdf> <./split.pdf> <./strsplit
+.pdf> <./strsplit_2.pdf> <./substr.pdf>]
 File: substr_3.pdf Graphic file (type pdf)
  <use substr_3.pdf>
-<grep.pdf, id=597, 230.8625pt x 54.2025pt>
+<grep.pdf, id=690, 230.8625pt x 54.2025pt>
 File: grep.pdf Graphic file (type pdf)
  <use grep.pdf>
-<grepl.pdf, id=598, 233.87375pt x 54.2025pt>
+<grepl.pdf, id=691, 233.87375pt x 54.2025pt>
 File: grepl.pdf Graphic file (type pdf)
  <use grepl.pdf>
-<sub.pdf, id=599, 283.0575pt x 54.2025pt>
+<sub.pdf, id=692, 283.0575pt x 54.2025pt>
 File: sub.pdf Graphic file (type pdf)
  <use sub.pdf>
-<gsub.pdf, id=600, 290.08376pt x 54.2025pt> [12 <./split.pdf> <./strsplit.pdf> 
-<./strsplit_2.pdf> <./substr.pdf> <./substr_2.pdf> <./substr_3.pdf> <./grep.pdf
-> <./grepl.pdf>]
+<gsub.pdf, id=693, 290.08376pt x 54.2025pt>
 File: gsub.pdf Graphic file (type pdf)
- <use gsub.pdf> [13 <./sub.pdf> <./gsub.pdf>]
-(./visualRefCard.aux) ) 
+ <use gsub.pdf>
+<factor.pdf, id=694, 282.05376pt x 54.2025pt>
+File: factor.pdf Graphic file (type pdf)
+ <use factor.pdf>
+<levels.pdf, id=695, 239.89626pt x 54.2025pt>
+File: levels.pdf Graphic file (type pdf)
+ <use levels.pdf>
+Overfull \hbox (60.46472pt too wide) in paragraph at lines 478--481
+[][] 
+ []
+
+<forms1.pdf, id=696, 351.3125pt x 34.1275pt>
+File: forms1.pdf Graphic file (type pdf)
+ <use forms1.pdf>
+<pos1.pdf, id=697, 165.61874pt x 34.1275pt>
+File: pos1.pdf Graphic file (type pdf)
+ <use pos1.pdf>
+Overfull \hbox (55.44597pt too wide) in paragraph at lines 486--489
+[][] 
+ []
+
+<split2.pdf, id=698, 570.13pt x 96.36pt>
+File: split2.pdf Graphic file (type pdf)
+ <use split2.pdf>
+Overfull \hbox (96.64462pt too wide) in paragraph at lines 494--497
+[][] 
+ []
+
+[14 <./substr_2.pdf> <./substr_3.pdf> <./grep.pdf> <./grepl.pdf> <./sub.pdf> <.
+/gsub.pdf> <./factor.pdf> <./levels.pdf> <./forms1.pdf> <./pos1.pdf>]
+<tapply.pdf, id=743, 381.425pt x 96.36pt>
+File: tapply.pdf Graphic file (type pdf)
+ <use tapply.pdf>
+<dataframe.pdf, id=744, 521.95pt x 125.46875pt>
+File: dataframe.pdf Graphic file (type pdf)
+ <use dataframe.pdf>
+Overfull \hbox (48.46472pt too wide) in paragraph at lines 527--530
+[][] 
+ []
+
+<dataframe_extracting.pdf, id=745, 263.98625pt x 273.02pt>
+File: dataframe_extracting.pdf Graphic file (type pdf)
+
+<use dataframe_extracting.pdf> [15 <./split2.pdf> <./tapply.pdf> <./dataframe.p
+df>] <dataframe_extracting_row.pdf, id=761, 186.6975pt x 167.62625pt>
+File: dataframe_extracting_row.pdf Graphic file (type pdf)
+
+<use dataframe_extracting_row.pdf>
+<dataframe_extracting_column.pdf, id=762, 186.6975pt x 125.46875pt>
+File: dataframe_extracting_column.pdf Graphic file (type pdf)
+
+<use dataframe_extracting_column.pdf>
+<merge.pdf, id=763, 233.87375pt x 185.69376pt>
+File: merge.pdf Graphic file (type pdf)
+ <use merge.pdf>
+<t.pdf, id=764, 93.34875pt x 97.36375pt>
+File: t.pdf Graphic file (type pdf)
+ <use t.pdf> [16 <./dataframe_extracting.pdf> <./dataframe_extracting_row.pdf> 
+<./dataframe_extracting_column.pdf> <./merge.pdf> <./t.pdf>] [17] (./visualRefC
+ard.aux) ) 
 Here is how much of TeX's memory you used:
- 2725 strings out of 94073
- 37877 string characters out of 1164796
- 82067 words of memory out of 1500000
- 5903 multiletter control sequences out of 10000+50000
- 10990 words of font info for 29 fonts, out of 1200000 for 2000
+ 2857 strings out of 94073
+ 40748 string characters out of 1164796
+ 83067 words of memory out of 1500000
+ 6008 multiletter control sequences out of 10000+50000
+ 11676 words of font info for 30 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  25i,10n,24p,334b,195s stack positions out of 5000i,500n,6000p,200000b,5000s
-{/opt/local/share/texmf-dist/fonts/enc/dvips/cm-super/cm
--super-t1.enc}</opt/local/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200
-.pfb></opt/local/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></op
-t/local/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></opt/local/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></opt/local/share/texm
-f-dist/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on visualRefCard.pdf (13 pages, 489720 bytes).
+{/opt/local/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+}</opt/local/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></opt/lo
+cal/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></opt/local/share
+/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></opt/local/share/texmf-di
+st/fonts/type1/public/cm-super/sfrm1200.pfb></opt/local/share/texmf-dist/fonts/
+type1/public/cm-super/sfrm1728.pfb></opt/local/share/texmf-dist/fonts/type1/pub
+lic/cm-super/sfti1000.pfb>
+Output written on visualRefCard.pdf (17 pages, 614825 bytes).
 PDF statistics:
- 666 PDF objects out of 1000 (max. 8388607)
+ 812 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 601 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 731 words of extra memory for PDF output out of 10000 (max. 10000000)
 

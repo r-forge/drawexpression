@@ -37,12 +37,12 @@ All vectors have two important properties : their mode and their length.
 \includegraphics{v_log_type} & \includegraphics{v_log_length}\\
 \end{tabular}
 
-Functions are very precisly defined in terms of mode, number and length of vectors they may take as argument, and mode and length of vector they create.
+Functions are precisly defined in terms of mode, number and length of vectors they may take as argument, and mode and length of vector they create.
 
-- length() take one vector of any mode and length and return a vector of numeric vector of length 1.
-
-- mode() take one vector of any mode and length and return a character vector of length 1.
-
+\begin{enumerate}
+\item length() take one vector of any mode and length and return a vector of numeric vector of length 1.
+\item mode() take one vector of any mode and length and return a character vector of length 1.
+\end{enumerate}
 
 \section{Creating a vector}
 % ----------------------------
@@ -142,7 +142,7 @@ Some functions for numeric vectors.
 
 \includegraphics{cumsum}
 
-TODO : table
+TODO : table()
 
 \section{Some string functions}
 % ----------------------------
@@ -183,7 +183,18 @@ The character mode always wins. Logical always looses.
 \includegraphics{conversion_1} & \includegraphics{conversion}\\
 \end{tabular}
 
-% TODO : more on type conversion. Exemple of functions silently converting their argument. nchar() for instance, on numeric.
+Many functions silently convert their arguments to the requiered type. For
+instance, the function nchar() give the number of characters of the elements of
+a character vector. It makes sense only for characters string: numbers don't
+have a "number of characters" themselves, but inside a convention of
+representation as characters strings. If the function nchar() receive a vector
+of another type (numerical, logical), the vector is silently converted into a
+characters vector using as.character() (left). The result is identical to
+explicitly converting into characters, using as.character() (right).
+
+\begin{tabular}{cc}
+\includegraphics{conversion_nchar} & \includegraphics{conversion_as_character}\\
+\end{tabular}
 
 \section{Index}
 % ----------------------------
@@ -197,9 +208,30 @@ Some useful functions give index rather than the actual values.
 \includegraphics{which_min} & \includegraphics{which_max}\\
 \end{tabular}
 
-% TODO : This is particularly usefull in very common situation where two or
-% more vectors are "aligned", or synchronized, and you don't want to loose the
-% initial order
+This is particularly usefull in very common situations where two or more
+vectors are "aligned", or "synchronized". Suppose two vectors: a character
+vector giving forms in a corpus (left), and a numeric vector giving the total
+frequency for each form (right):
+
+\begin{tabular}{cc}
+\includegraphics{v_forms} & \includegraphics{v_frequencies}\\
+\end{tabular}
+
+Using max(), you may retrieve the maximum frequency from the second vector, but
+you can't figure out which form have this frequency. Using which.max(), you're
+still able to extract the corresponding value in the first vector:
+
+\begin{tabular}{c}
+\includegraphics{which_max_2}
+\end{tabular}
+
+Again, suppose you want to sort the row of a matrix according to the value in a
+column. You cannot use sort, since it give the actual values sorted, not the
+index of the row sorted. Order is commonly used for reordering data structure:
+
+\begin{tabular}{c}
+\includegraphics{matrix_order}
+\end{tabular}
 
 \section{Precedence}
 % ----------------------------
@@ -215,13 +247,6 @@ Operators have precedence (see ?Syntax).
 The order in which the operators are written in the code does not matter!
 
 \includegraphics{operator_gt_inv}
-
-\section{Factor}
-% ----------------------------
-
-TODO
-
-There is numerous situations where values of a vector are seen as modalities, allowing for grouping, etc. (split, rowsum, tapply, by, etc.)
 
 \section{Matrix}
 % ----------------------------
@@ -257,6 +282,12 @@ You first extract the rows, then the columns.
 %& \includegraphics{matrix_extraction_drop}
 %\end{tabular}
 
+If you leave blank the column slot, all columns are selected (left); if you leave blank the row slot, all rows are selected (right).
+
+\begin{tabular}{cc}
+\includegraphics{matrix_extraction_rows} & \includegraphics{matrix_extraction_columns}\\
+\end{tabular}
+
 How does extraction in a matrix preserve names? No name is preserved if you extract a single element; longuest dimension's names are preserved if you extract a vector of more than one element, both dimensions are preserved if you extract a sub-matrix:
 
 \includegraphics{matrix_extraction8}
@@ -285,6 +316,27 @@ it extracts from the underlying, column-filled vector:
 
 \includegraphics{matrix_extraction_as_vector}
 
+\subsection{Contingency table}
+
+prop.table() compute proportion, given a matrix of frequencies. Proportion are computed either for the whole table (top), by row (middle) or by column (bottom):
+
+\begin{tabular}{c}
+\includegraphics{prop_table1}\\
+\includegraphics{prop_table_row}\\
+\includegraphics{prop_table_column}
+\end{tabular}
+
+margin.table() compute margin sum, given a matrix of frequencies. Margin are
+computed either for the whole table (left), for row (right) or for column
+(bottom).
+
+\begin{tabular}{cc}
+\includegraphics{margin_table1} & \includegraphics{margin_table_row}\\
+\includegraphics{margin_table_column} &
+\end{tabular}
+
+The result with dashed lines are "list" : see below.
+
 \subsection{Summing a matrix}
 
 \includegraphics{matrix_sum} 
@@ -306,10 +358,6 @@ rowsum() performs a colSums on each group of rows given by the second argument.
 \begin{tabular}{cc}
 \includegraphics{cbind.pdf} & \includegraphics{rbind.pdf}\\
 \end{tabular}
-
-\includegraphics{merge.pdf} 
-
-\includegraphics{t.pdf} 
 
 \section{list}
 % ----------------------------
@@ -344,8 +392,6 @@ A list can be recursive: a component may be a list.
 
 \subsection{Basic functions}
 
-TODO...
-
 \includegraphics{list_names}
 
 \includegraphics{list_length}
@@ -368,16 +414,21 @@ With the single-square-bracket operator you cannot walk down though the data str
 
 \includegraphics{list_successive_extraction}
 
+Be sure to understand the difference between "lengt(l[1])" and length(l[[1]])" :
+
+\begin{tabular}{cc}
+\includegraphics{list_extraction_1.pdf} & \includegraphics{list_extraction_2.pdf}
+\end{tabular}
+
 \subsection{List and vector}
 
 \begin{tabular}{cc}
 \includegraphics{unlist} & \includegraphics{aslist}
 \end{tabular}
 
-
 \subsection{List for expressing complex data structure}
 
-Grouping elements of a vector using a the level of a factors:
+Grouping elements of a vector using a the level of a factors (see Factor):
 
 \includegraphics{split}
 
@@ -411,11 +462,136 @@ See also for instance strsplit() below.
 
 \includegraphics{gsub}
 
-\subsection{Searching substring in elements of character vector: regexpr()}
+\subsection{Searching substring in elements of character vector: regular expression}
 
 TODO
 
+\section{Factor}
+% ----------------------------
+
+A factor represent a nominal random variable. It looks like a character
+vector, and may be created using a character vector (left). In this document,
+factors are represented without quotes around the values. The different values in
+the factor (the different modality in the random variable) may be retrieved
+using levels() (right).
+
+\begin{tabular}{cc}
+\includegraphics{factor} & \includegraphics{levels}\\
+\end{tabular}
+
+A factor is usefull for \emph{grouping} elements. Suppose two vectors, one
+giving forms, and the other giving part of speech. You want to group the forms
+according to part of speech. 
+
+\begin{tabular}{cc}
+\includegraphics{forms1} & \includegraphics{pos1}\\
+\end{tabular}
+
+The function split() create a list, each element
+of the list corresponding to a group. The frist argument give the element to be
+grouped, the second one is a vector: it give the grouping.
+
+\begin{tabular}{c}
+\includegraphics{split2}
+\end{tabular}
+
+You may give any type of vector as second argument to split(): split() will
+call as.factor() on this argument.
+
+tapply() do the same grouping, and then apply a function (it's third argument)
+to each group:
+
+\begin{tabular}{c}
+\includegraphics{tapply}
+\end{tabular}
+
+There is numerous functions using factor (or converting vector into factor),
+allowing for grouping (split(), rowsum(), tapply(), by(), aggregate(), etc.)
+
 \section{Data Frame}
+
+A data frame is a data structure for representing statistical information about
+a group of individuals. For each individual, you may have numerical values,
+categorial values, boolean values, etc.
+
+In a data frame, each row represent an individual, and each column represent a
+random variable. This is like a matrix, except that the column may have
+different type. This is like a list, since it may mix vectors of different
+type, but all vectors must have the same length. Data frame may often be
+seen as matrix, or as list.
+
+From an internal representation, a data frame is a list of vector, each element
+of the list beeing a column. Thus, it is represented here with dotted line,
+like a list, and solid line in column :
+
+\begin{tabular}{c}
+\includegraphics{dataframe.pdf}
+\end{tabular}
+
+Data frame may be created by enumerating its columns.
+
+Like a matrix, a data frame may have rowname. In fact, unlike a matrix or a
+list, a data frame has \emph{always} row and column name. Below, you see that
+automatic default row names have been added, corresponding to the index.
+rownames() and colnames() may be used with data frame as with matrix. Default
+colum name would have been added as well for unnamed column. 
+
+\subsection{Extraction}
+
+Extracting is similar to extracting with matrix :
+
+\begin{tabular}{c}
+\includegraphics{dataframe_extracting.pdf}
+\end{tabular}
+
+Note that row-extraction (left) and column-extraction (right) do not give the
+same data structure. Furthermore, in column extraction, the row name are lost:
+
+\begin{tabular}{cc}
+\includegraphics{dataframe_extracting_row.pdf} & \includegraphics{dataframe_extracting_column.pdf}
+\end{tabular}
+
+\subsection{Subseting}
+
+\subsection{Merging}
+
+Merge() use the columns with same name for combining two matrices:
+
+\begin{tabular}{cc}
+\includegraphics{merge.pdf} & \includegraphics{t.pdf}\\
+\end{tabular}
+
+As shown by the graphical presentation, merge() may operate on both matrix or
+data frame, but create data frame. Columns to be used for combining may be
+given explicitly
+
+
+% subset
+
+% Pour l'introduction : reprendre Baayen, sort, subset...
+
+% noter :
+% - nommé par le nom de la variable
+% - perd son nom
+%
+% > f
+%     un   deux     un   deux quatre 
+%     un   deux     un   deux quatre 
+% Levels: deux quatre un
+% > dt <- data.frame(1:5, f)
+% > dt
+%   X1.5      f
+% 1    1     un
+% 2    2   deux
+% 3    3     un
+% 4    4   deux
+% 5    5 quatre
+% > x <- dt$f
+% > x
+% [1] un     deux   un     deux   quatre
+% Levels: deux quatre un
+% 
+
 
 TODO
 
@@ -438,9 +614,7 @@ TODO
 % 
 % %MATRIX
 % %col
-% %margin.table
 % %slice.index
-% split
 % %class.ind ? dans package nnet
 % %max.col, max.row
 % 
@@ -455,4 +629,72 @@ TODO
 
 % switch
 
+% length<-
+% mode de NA ; possible qu'il n'y en ait pas ?
+% n <- 1
+% n[10]<- 2
+% mode(n[2])
+% [1] "numeric"
+%
+% mais :
+% > mode(NA)
+% [1] "logical"
+
+% voir page d'aide de rowsum pour des fonctions comme by, aggregate
+% essayer de représenter graphiquement le dernier exemple sur cette page
+
+
+% outer : et autres ?
+
+% drawExpression("matrix(1:4)")
+% les opérateurs comme %in%, etc.
+
+% aggregate :
+% by.section <- aggregate(lemonde.gram, list(Secteur = lemonde.info$section), sum);
+% 
+
+% de façon général il est avantageux d'utiliser autant que possible des index. Par exemple, supposons que l'on souhaite désigner dans un premier temps un certains nombres d'élément d'un vecteur, puis les autres éléments. Il est plus simple de passer par les index :
+%i <- which(x == y)
+%l'ensemble complémentaire est donné avec x[-i]
+
+% union[2, union[2,] == 1 ]
+
+% is(1:10, "numeric")
+
+% rowSums, colSums : montrer que les noms de lignes et de colonnes sont préservés.
+
+%m2 <- m[-which(rownames(m) %in% c("PDE", "PRP")) ,];
+
+% > as.numeric(as.factor(c(1, 3, 5, 7, 2, 7)))
+% [1] 1 3 4 5 2 5
+% 
+
+% unique garde l'ordre, tandis que table() donne alphabétiquement?
+
+% différence entre [<- et [[<- !!!
+% "le nombre d'objets à remplacer n'est pas multiple de la taille du remplacement"
+
+% drawExpression("lapply(list(1:2,2:4,3:4), sum)")
+
+% drawExpression("numeric(5)")
+% drawExpression("logical(5)")
+% drawExpression("character(5)")
+
+% unlist(list(NULL, "un"))
+
+% on fait référence plusieurs fois à la même structure :
+%  edition <- edition[grepl("^[0-9]", edition)]
+
+% example
+
+% > length(AnaIdeDeb[1])
+% [1] 1
+% > length(AnaIdeDeb[[1]])
+% [1] 1388
+
+
 \end{document}
+
+
+
+% "lapply(list(1,2,3), sum)"

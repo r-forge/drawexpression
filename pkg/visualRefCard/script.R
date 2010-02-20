@@ -42,6 +42,10 @@ plotR("5:8", "operator_sequence.pdf");
 plotR("c(1:3, FALSE, TRUE)", "conversion_1.pdf");
 plotR("c(\"oui\", 1:3, FALSE)", "conversion.pdf");
 
+v <- c(3, 102, 14);
+plotR("nchar(v)", "conversion_nchar.pdf")
+plotR("nchar(as.character(v))", "conversion_as_character.pdf")
+
 # Extraction
 v <- c(10, 7, 2);
 i <- c(1,3);
@@ -147,6 +151,12 @@ plotR("which.max(x)", "which_max.pdf");
 which.v <- c(T, F, F, T, F, T);
 plotR("which(which.v)", "which.pdf");
 
+v1 <- c("le", "de", "un", "a");
+v2 <- c(60, 100, 40, 30);
+plotR("v1", "v_forms.pdf");
+plotR("v2", "v_frequencies.pdf");
+plotR("v1[which.max(v2)]", "which_max_2.pdf");
+
 # list
 
 plotR("list(1:3, TRUE)[1]", "list_extract_simple.pdf");
@@ -161,9 +171,9 @@ l <- list(1:3, TRUE, "jour");
 plotR("unlist(l)", "unlist.pdf");
 plotR("as.list(1:4)", "aslist.pdf");
 
-l.names <- l;
-names(l) <- c("First", "Second", "Third");
-plotR("names(l.names)", "list_names.pdf");
+l.named <- l;
+names(l.named) <- c("First", "Second", "Third");
+plotR("names(l.named)", "list_names.pdf");
 
 plotR("length(l)", "list_length.pdf");
 
@@ -171,6 +181,10 @@ plotR("mode(l)", "list_mode.pdf");
 
 l.complexe <- list(1, list(1:3), "b")
 plotR("l.complexe[[2]][[1]][3]", "list_successive_extraction.pdf");
+
+li <- list(1:3, TRUE, "jour");
+plotR("length(li[[1]])", "list_extraction_1.pdf");
+plotR("length(li[1])", "list_extraction_2.pdf");
 
 split.v <- 1:8
 split.v2 <- c(1, 1, 1, 2, 2, 2, 3, 3);
@@ -217,6 +231,9 @@ b <- c(T,F);
 plotR("m3[b,\"deux\"]", "matrix_extraction5.pdf")
 plotR("m[2,2, drop=F]", "matrix_extraction_drop.pdf")
 
+plotR("m[2,]", "matrix_extraction_rows.pdf")
+plotR("m[,2]", "matrix_extraction_columns.pdf")
+
 a <- 1:2
 plotR("m3[1,a]", "matrix_extraction6.pdf")
 plotR("m3[a,a]", "matrix_extraction7.pdf")
@@ -235,7 +252,16 @@ plotR("rowsum(m5, rowsum.v)", "rowsum.pdf")
 plotR("sum(m)", "matrix_sum.pdf")
 
 
+plotR("prop.table(m)", "prop_table1.pdf")
+plotR("prop.table(m, margin=1)", "prop_table_row.pdf")
+plotR("prop.table(m, margin=2)", "prop_table_column.pdf")
 
+plotR("margin.table(m)", "margin_table1.pdf")
+plotR("margin.table(m, margin=1)", "margin_table_row.pdf")
+plotR("margin.table(m, margin=2)", "margin_table_column.pdf")
+
+m <- matrix(c( 4, 1, 3, 3, 2, 1, 5, 9, 8), 3);
+plotR("m[order(m[,1]),]", "matrix_order.pdf")
 
 
 plotR("list(1:3, matrix(1:4, 2), 2)", "list_matrix.pdf");
@@ -280,4 +306,33 @@ rownames(m) <- c("row 1", "row 2")
 colnames(m) <- c("un", "deux", "trois")
 
 plotR("cbind(m, m2)", "cbind_2.pdf")
+
+
+# factor
+
+chars <- c("bleu", "rouge", "bleu", "vert", "rouge");
+plotR("factor(chars)", "factor.pdf")
+f <- factor(chars);
+plotR("levels(f)", "levels.pdf")
+
+forms1 <- c("pratique", "représentation", "linguistique", "sociale", "Guyane")
+pos1 <- c("nc", "nc", "adj", "adj", "npr");
+freqs1 <- c(10, 8, 13, 20, 5);
+plotR("forms1", "forms1.pdf")
+plotR("pos1", "pos1.pdf")
+plotR("split(forms1, pos1)", "split2.pdf")
+plotR("tapply(freqs1, pos1, mean)", "tapply.pdf")
+
+
+# Data frame
+
+df1 <- 1:3
+df2 <- c("un", "deux", "deux")
+df3 <- 1001:1003
+df <- data.frame(col1=df1, col2=df2, col3=df3)
+plotR("data.frame(col1=df1, col2=df2, col3=df3)", "dataframe.pdf")
+
+plotR("df[1:2, 1:2]", "dataframe_extracting.pdf")
+plotR("df[1, ]", "dataframe_extracting_row.pdf")
+plotR("df[, 1]", "dataframe_extracting_column.pdf")
 
