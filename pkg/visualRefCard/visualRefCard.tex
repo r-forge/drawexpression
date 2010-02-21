@@ -16,6 +16,21 @@
 
 Universit\'e de Caen--Basse Normandie
 
+\section{Graphical conventions}
+% ----------------------------
+
+In this document, evaluations of R expressions are represented graphically. For
+instance, the expression "c(7, 5) + 3", which create a vector and add 3 to
+its elements, is represented as follow:
+
+\begin{tabular}{c}
+\includegraphics{graphical_conventions}
+\end{tabular}
+
+The first line represent the expression you typed in, the last line give the
+object eventually created, and each intermediary line is a step in the
+evaluation of the expression.
+
 \section{Anatomy of a vector}
 % ----------------------------
 
@@ -127,20 +142,20 @@ Be careful:
 
 \includegraphics{operator_recycling}
 
-\section{Some numerical functions}
+\section{Some numeric functions}
 % ----------------------------
 
 Some functions for numeric vectors.
 
 \begin{tabular}{cc}
 \includegraphics{sum} & \includegraphics{mean}\\
-\includegraphics{range} & \includegraphics{rev}\\
+\includegraphics{var} & \includegraphics{sd}\\
 \includegraphics{max} & \includegraphics{min}\\
+\includegraphics{range} & \\
+\includegraphics{cumsum} & \includegraphics{cumprod}
 \end{tabular}
 
 %\includegraphics{crossprod}
-
-\includegraphics{cumsum}
 
 TODO : table()
 
@@ -172,10 +187,15 @@ Numeric and character vectors can be sorted. Names are preserved.
 \includegraphics{sort_char} & \includegraphics{sort_char_names} \\
 \end{tabular}
 
+Flipping a vector:
+
+\includegraphics{rev}
+
 \section{Type conversion}
 % ----------------------------
 
-c() coerce arguments to a common mode -- all elements of a vector always have a common mode.
+c() coerce its arguments to a common mode -- all elements of a vector always
+have a common mode.
 
 The character mode always wins. Logical always looses.
 
@@ -183,12 +203,12 @@ The character mode always wins. Logical always looses.
 \includegraphics{conversion_1} & \includegraphics{conversion}\\
 \end{tabular}
 
-Many functions silently convert their arguments to the requiered type. For
+Many functions silently convert their arguments to the requiered mode. For
 instance, the function nchar() give the number of characters of the elements of
 a character vector. It makes sense only for characters string: numbers don't
 have a "number of characters" themselves, but inside a convention of
 representation as characters strings. If the function nchar() receive a vector
-of another type (numerical, logical), the vector is silently converted into a
+of another mode (numerical, logical), the vector is silently converted into a
 characters vector using as.character() (left). The result is identical to
 explicitly converting into characters, using as.character() (right).
 
@@ -254,7 +274,7 @@ The order in which the operators are written in the code does not matter!
 \subsection{Creation}
 
 Matrix are created with the matrix() function. It takes three main arguments: a
-vector (any type and any length) gives the content, two vectors (numeric and
+vector (any mode and any length) gives the content, two vectors (numeric and
 length 1) give the numbers of rows and columns. If only one dimension is given,
 the second one is deduced from the length of the vector. If both dimensions are
 given and the vector length do not match the number of cells, the vector is
@@ -331,11 +351,11 @@ computed either for the whole table (left), for row (right) or for column
 (bottom).
 
 \begin{tabular}{cc}
-\includegraphics{margin_table1} & \includegraphics{margin_table_row}\\
-\includegraphics{margin_table_column} &
+\includegraphics{margin_table1} & \\
+\includegraphics{margin_table_row} &  \includegraphics{margin_table_column}
 \end{tabular}
 
-The result with dashed lines are "list" : see below.
+This objects with dashed lines are "lists": see below.
 
 \subsection{Summing a matrix}
 
@@ -344,10 +364,6 @@ The result with dashed lines are "list" : see below.
 \begin{tabular}{ccc}
 \includegraphics{rowSums} & \includegraphics{colSums}
 \end{tabular}
-
-rowsum() performs a colSums on each group of rows given by the second argument.
-
-\includegraphics{rowsum} 
 
 \subsection{Changing}
 
@@ -492,15 +508,16 @@ according to part of speech.
 \includegraphics{forms1} & \includegraphics{pos1}\\
 \end{tabular}
 
-The function split() create a list, each element
-of the list corresponding to a group. The frist argument give the element to be
-grouped, the second one is a vector: it give the grouping.
+The function split() groups elements, given two arguments: a vector (the
+elements to be grouped), and a factor (giving the group of each element).
+split() create a list, each element of the list corresponding to a group, the
+name of the list element corresponding to the group name.
 
 \begin{tabular}{c}
 \includegraphics{split2}
 \end{tabular}
 
-You may give any type of vector as second argument to split(): split() will
+You may give vector of any mode as second argument to split(): split() will
 call as.factor() on this argument.
 
 tapply() do the same grouping, and then apply a function (it's third argument)
@@ -510,71 +527,43 @@ to each group:
 \includegraphics{tapply}
 \end{tabular}
 
-There is numerous functions using factor (or converting vector into factor),
-allowing for grouping (split(), rowsum(), tapply(), by(), aggregate(), etc.)
+rowsum() performs a colSums on each group of rows given by the second argument.
+
+\includegraphics{rowsum} 
+
+There are numerous other functions using factor (or converting vector into
+factor) allowing for grouping (by(), aggregate(), etc.)
 
 \section{Data Frame}
 
 A data frame is a data structure for representing statistical information about
-a group of individuals. For each individual, you may have numerical values,
-categorial values, boolean values, etc.
+a group of individuals. For each individual, you may have numerical random
+variable, categorial random variable, ie. different modes (numeric, character,
+factor).
 
 In a data frame, each row represent an individual, and each column represent a
-random variable. This is like a matrix, except that the column may have
-different type. This is like a list, since it may mix vectors of different
-type, but all vectors must have the same length.
+random variable. This is like a matrix, except that the columns may have
+different mode. This is like a list, since it may mix vectors of different
+modes, but all vectors must have the same length.
 
-From an internal representation, a data frame is a list of vector, each element
-of the list beeing a column. Thus, data frame may be created with the function
-data.frame() by enumerating its columns. It is represented here with dotted
-line, like a list, and solid line in column :
+From an internal representation, a data frame is a list of vectors. Thus, data
+frame may be created with the function data.frame() by enumerating its
+column-vectors. It is represented here with dotted lines, like a list, and
+solid lines around vector-column:
 
 \begin{tabular}{c}
 \includegraphics{dataframe.pdf}
 \end{tabular}
 
-However, like a matrix and unlike a list, a data frame may have rowname. In
-fact, unlike a matrix or a list, a data frame has \emph{always} row and column
-names. You can see from the previous exemple that automatic default row names
-have been added, corresponding to the index. rownames() and colnames() may be
-used with data frame as with matrix. Default colum name would have been added
-as well for unnamed column. 
-
-\subsection{Extraction}
-
-Extracting is similar to extracting with matrix :
-
-\begin{tabular}{c}
-\includegraphics{dataframe_extracting.pdf}
-\end{tabular}
-
-However, note that row-extraction (left) and column-extraction (right) do not
-give the same data structure. Furthermore, in column extraction, the row name
-are lost (right):
-
-\begin{tabular}{cc}
-\includegraphics{dataframe_extracting_row.pdf} & \includegraphics{dataframe_extracting_column.pdf}
-\end{tabular}
-
-\subsection{Subseting}
-
-% subset
-
-\subsection{Merging}
-
-Merge() use the columns with same name for combining two matrices:
-
-\begin{tabular}{c}
-\includegraphics{merge.pdf}
-\end{tabular}
-
-As shown by the graphical presentation, merge() may operate on both matrix or
-data frame, but create data frame. Columns to be used for combining may be
-given explicitly
-
+Like a matrix and unlike a list, a data frame may have rownames. In fact, a
+data frame has \emph{always} row and column names (while matrix may have no row
+or column names). You can see from the previous exemple that automatic default
+row names have been added: a character representation of the index number of
+the row. Default colum names are created as well for unnamed column. rownames() and colnames() may be used with data frame as with matrix.
+ 
 \subsection{Converting}
 
-From and toward matrix:
+You can also create a data frame from a matrix, or create a matrix from a data frame (when you convert data frame into matrix, a mode compatible with all column is used: the character mode below):
 
 \begin{tabular}{cc}
 \includegraphics{dataframe_as_matrix} & \includegraphics{dataframe_as_data_frame}\\
@@ -587,6 +576,65 @@ row and column names. Row and column names are lost with as.matrix. Column names
 \includegraphics{dataframe_as_list}
 \end{tabular}
 
+You may create a data frame from a list only if all list component have the
+same length:
+
+\begin{tabular}{c}
+\includegraphics{dataframe_as_dataframe_from_list}
+\end{tabular}
+
+Many functions expecting a matrix will accept a data frame, silently converting
+it into a matrix. Similarly, many functions expecting a data frame will accept
+a matrix and silently convert it into a data frame.
+
+\subsection{Extraction}
+
+1/ with simple square bracket operator, a data frame is seen as matrix: two dimensions must be provided inside the square brackets
+
+\begin{tabular}{c}
+\includegraphics{dataframe_extracting.pdf}
+\end{tabular}
+
+However, note that row-extraction (left) and column-extraction (right) do not
+give the same data structure. It is a data frame (left) or a vector (right).
+Furthermore, in column extraction, the row name are lost (right):
+
+\begin{tabular}{cc}
+\includegraphics{dataframe_extracting_row.pdf} & \includegraphics{dataframe_extracting_column.pdf}
+\end{tabular}
+
+2/ with double square bracket operator, a data.frame behave like a list: one dimension must be provided.
+
+\begin{tabular}{cc}
+\includegraphics{dataframe_list_like_extraction_3.pdf} & \includegraphics{dataframe_list_like_extraction_2.pdf}
+\end{tabular}
+
+The "\$" operator may be used like in a list
+
+\begin{tabular}{cc}
+\includegraphics{dataframe_list_like_extraction_1.pdf}
+\end{tabular}
+
+\subsection{Subseting}
+
+To be done
+
+% also the argument "data" in many functions.
+
+% The subset function is very useful for selecting, filtering, reordering... rows and columns of a data frame.
+% 
+% It take three arguments: a data frame, a row selection expression 
+
+\subsection{Merging}
+
+Merge() use the columns with same name for combining two matrices or data frame:
+
+\begin{tabular}{c}
+\includegraphics{merge.pdf}
+\end{tabular}
+
+The result is always a data frame. Columns to be used for combining may be
+given explicitly
 
 % Pour l'introduction : reprendre Baayen, sort, subset...
 
@@ -613,7 +661,7 @@ row and column names. Row and column names are lost with as.matrix. Column names
 % 
 
 
-TODO
+% TODO
 
 % \section{apply}
 % 

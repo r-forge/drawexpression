@@ -98,7 +98,8 @@ plotR("5:8 > 6", "operator_gt.pdf");
 plotR("6 < 5:8", "operator_gt_inv.pdf");
 
 # functions
-plotR("sum(c(2, 1, 3, 4))", "sum.pdf");
+x <- c(2, 1, 3, 4);
+plotR("sum(x)", "sum.pdf");
 x <- c(2, 1, 3, 4);
 y <- c("les", "gli");
 plotR("mean(x)", "mean.pdf");
@@ -115,6 +116,11 @@ plotR("min(x)", "min.pdf");
 
 plotR("crossprod(x)", "crossprod.pdf");
 plotR("cumsum(x)", "cumsum.pdf");
+
+plotR("cumprod(x)", "cumprod.pdf");
+plotR("var(x)", "var.pdf");
+plotR("sd(x)", "sd.pdf");
+
 
 plotR("table(c(1:4, 2:5, 4:7))", "table.pdf");
 
@@ -341,3 +347,12 @@ m <- matrix(1:6, 2)
 plotR("as.data.frame(m)", "dataframe_as_data_frame.pdf")
 plotR("as.list(df)", "dataframe_as_list.pdf")
 
+plotR("df$col1", "dataframe_list_like_extraction_1.pdf")
+plotR("df[[\"col1\"]]", "dataframe_list_like_extraction_2.pdf")
+plotR("df[[1]]", "dataframe_list_like_extraction_3.pdf")
+
+
+
+
+
+plotR("c(7, 5) + 3", "graphical_conventions.pdf")
