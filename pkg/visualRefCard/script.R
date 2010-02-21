@@ -122,8 +122,14 @@ plotR("var(x)", "var.pdf");
 plotR("sd(x)", "sd.pdf");
 
 
-plotR("table(c(1:4, 2:5, 4:7))", "table.pdf");
+f1 <- factor(c("det", "adj", "nc", "vb", "adv", "con", "pro", "adj", "vb"))
+f2 <- factor(c("s", "s", "", "s", "-", "-", "p", "p", "p"))
 
+plotR("table(f1)", "table_1.pdf");
+plotR("table(f1)", "table_1b.pdf");
+plotR("table(f1, f2)", "table_2.pdf");
+
+plotR("table(c(1:4, 2:5, 4:7))", "table.pdf");
 
 table.v <- c("a", "b", "c", "a", "c", "d");
 #plotR("table(table.v)", "table.pdf");
@@ -346,10 +352,14 @@ plotR("as.matrix(df)", "dataframe_as_matrix.pdf")
 m <- matrix(1:6, 2)
 plotR("as.data.frame(m)", "dataframe_as_data_frame.pdf")
 plotR("as.list(df)", "dataframe_as_list.pdf")
+plotR("as.data.frame(list(1:3, 11:13))", "dataframe_as_dataframe_from_list.pdf")
+
 
 plotR("df$col1", "dataframe_list_like_extraction_1.pdf")
 plotR("df[[\"col1\"]]", "dataframe_list_like_extraction_2.pdf")
 plotR("df[[1]]", "dataframe_list_like_extraction_3.pdf")
+
+
 
 
 

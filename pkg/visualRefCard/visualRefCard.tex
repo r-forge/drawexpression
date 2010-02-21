@@ -138,6 +138,9 @@ In a context where vectorization is allowed, you may provide vectors of unequal 
 \includegraphics{operator_add} & \includegraphics{operator_gt}\\
 \end{tabular}
 
+There is no need to express a loop in order to add 1 to all elements of a
+vector.
+
 Be careful:
 
 \includegraphics{operator_recycling}
@@ -156,8 +159,6 @@ Some functions for numeric vectors.
 \end{tabular}
 
 %\includegraphics{crossprod}
-
-TODO : table()
 
 \section{Some string functions}
 % ----------------------------
@@ -336,27 +337,6 @@ it extracts from the underlying, column-filled vector:
 
 \includegraphics{matrix_extraction_as_vector}
 
-\subsection{Contingency table}
-
-prop.table() compute proportion, given a matrix of frequencies. Proportion are computed either for the whole table (top), by row (middle) or by column (bottom):
-
-\begin{tabular}{c}
-\includegraphics{prop_table1}\\
-\includegraphics{prop_table_row}\\
-\includegraphics{prop_table_column}
-\end{tabular}
-
-margin.table() compute margin sum, given a matrix of frequencies. Margin are
-computed either for the whole table (left), for row (right) or for column
-(bottom).
-
-\begin{tabular}{cc}
-\includegraphics{margin_table1} & \\
-\includegraphics{margin_table_row} &  \includegraphics{margin_table_column}
-\end{tabular}
-
-This objects with dashed lines are "lists": see below.
-
 \subsection{Summing a matrix}
 
 \includegraphics{matrix_sum} 
@@ -378,7 +358,6 @@ This objects with dashed lines are "lists": see below.
 \begin{tabular}{c}
 \includegraphics{t.pdf}\\
 \end{tabular}
-
 
 \section{list}
 % ----------------------------
@@ -449,43 +428,13 @@ Be sure to understand the difference between "lengt(l[1])" and length(l[[1]])" :
 
 \subsection{List for expressing complex data structure}
 
-Grouping elements of a vector using a the level of a factors (see Factor):
+List are useful for expressing complex data structure.
 
-\includegraphics{split}
+- Grouping elements of a vector using a the level of a factors (see Factor below and the function split())
 
-See also for instance strsplit() below.
+- Splitting strings (See strsplit() below).
 
-\section{Regexp}
-
-\subsection{Split strings: strplit()}
-
-\includegraphics{strsplit.pdf}
-
-\includegraphics{strsplit_2.pdf}
-
-\subsection{Extract sub strings: substr()}
-
-\includegraphics{substr.pdf}
-
-\includegraphics{substr_2.pdf}
-
-\includegraphics{substr_3.pdf}
-
-\subsection{Searching elements of a character vector with regexp: grep()}
-
-\includegraphics{grep}
-
-\includegraphics{grepl}
-
-\subsection{Substitution: sub()}
-
-\includegraphics{sub}
-
-\includegraphics{gsub}
-
-\subsection{Searching substring in elements of character vector: regular expression}
-
-TODO
+% \includegraphics{split}
 
 \section{Factor}
 % ----------------------------
@@ -532,7 +481,7 @@ rowsum() performs a colSums on each group of rows given by the second argument.
 \includegraphics{rowsum} 
 
 There are numerous other functions using factor (or converting vector into
-factor) allowing for grouping (by(), aggregate(), etc.)
+factor) allowing for grouping (see table() below, by(), aggregate(), etc.)
 
 \section{Data Frame}
 
@@ -635,6 +584,80 @@ Merge() use the columns with same name for combining two matrices or data frame:
 
 The result is always a data frame. Columns to be used for combining may be
 given explicitly
+
+\section{Functions for contingency table}
+% ----------------------------
+
+\subsection{Counting, contingency table}
+
+table() create count of the modalities of a factor. 
+
+Given one argument (a factor; a vector will be silently converted into factor), table() give the number of occurrences of each modality. Suppose a factor representing the part of speech of each words of a corpus:
+
+\begin{tabular}{c}
+\includegraphics{table_1.pdf}
+\end{tabular}
+
+% TODO todo : not the good type, it is an array !
+
+Given two arguments of same length (two factors, vectors are converted), table() create a contingency table: a matrix containing counts. Suppose a second factor giving the number ("s": singular, "p": plural, "-") of each words of the same corpus:
+
+\begin{tabular}{c}
+\includegraphics{table_2.pdf}
+\end{tabular}
+
+\subsection{Functions useful for contingency table}
+
+prop.table() compute proportion, given a matrix of counts. Proportion are computed either for the whole table (top), by row (middle) or by column (bottom):
+
+\begin{tabular}{c}
+\includegraphics{prop_table1}\\
+\includegraphics{prop_table_row}\\
+\includegraphics{prop_table_column}
+\end{tabular}
+
+margin.table() compute margin sum, given a matrix of counts. Margin are
+computed either for the whole table (left), for row (right) or for column
+(bottom).
+
+\begin{tabular}{cc}
+\includegraphics{margin_table1} & \\
+\includegraphics{margin_table_row} &  \includegraphics{margin_table_column}
+\end{tabular}
+
+% TODO todo : not the good type, it is an array !
+
+\section{Regexp}
+
+\subsection{Split strings: strplit()}
+
+\includegraphics{strsplit.pdf}
+
+\includegraphics{strsplit_2.pdf}
+
+\subsection{Extract sub strings: substr()}
+
+\includegraphics{substr.pdf}
+
+\includegraphics{substr_2.pdf}
+
+\includegraphics{substr_3.pdf}
+
+\subsection{Searching elements of a character vector with regexp: grep()}
+
+\includegraphics{grep}
+
+\includegraphics{grepl}
+
+\subsection{Substitution: sub()}
+
+\includegraphics{sub}
+
+\includegraphics{gsub}
+
+\subsection{Searching substring in elements of character vector: regular expression}
+
+TODO
 
 % Pour l'introduction : reprendre Baayen, sort, subset...
 
