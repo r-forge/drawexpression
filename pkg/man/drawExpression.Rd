@@ -20,26 +20,23 @@ drawExpression(expr, draw.index = FALSE, draw.names = FALSE, filename = NULL)
 
 \arguments{
   \item{expr}{
-   An R expression
+   An R expression to be drawn; must not contain affectation.
 }
   \item{draw.index}{
-   Should index (for R objects such as vector, matrix or list) be drawn on the margin of graphics.
+   Should index (for R objects such as vector, matrix or list) be drawn on the margin of graphics?
 }
   \item{draw.names}{
-   Should names (if any) be drawn on the margin of graphics.
+   Should names (if any) be drawn on the margin of graphics?
 }
   \item{filename}{
-  The name of a PDF file where a PDF file must be created.
+  The name of a PDF file where the plot will be saved
 }
-}
-\details{
-Some 
 }
 \value{
 None.
 }
 \author{
-Sylvain Loiseau
+Sylvain Loiseau <sloiseau@u-paris10.fr>
 }
 
 \examples{
