@@ -14,6 +14,8 @@
 
 \author Sylvain Loiseau <sylvain.loiseau@unicaen.fr>
 
+Laboratoire Modyco (CNRS/Universit\'e Paris Ouest Nanterre La D\'efense)
+
 Universit\'e de Caen--Basse Normandie
 
 \section{Graphical conventions}
@@ -564,6 +566,16 @@ The "\$" operator may be used like in a list
 \includegraphics{dataframe_list_like_extraction_1.pdf}
 \end{tabular}
 
+Compare extraction with "[[" (just above) and extraction with "[":
+
+\begin{tabular}{cc}
+\includegraphics{dataframe_list_like_extraction_4.pdf}
+\end{tabular}
+
+In the first case, you access the content of the first column (slot) of the
+data frame; in the second case, you extract the first column of the data frame
+(the result is still a data frame, containing only this column).
+
 \subsection{Subseting}
 
 To be done
@@ -789,3 +801,51 @@ TODO
 
 
 % "lapply(list(1,2,3), sum)"
+
+% curiosité v[1][1][1]... == v[1]
+% all, any, %in%
+
+% tel <- sapply(conc, "[[", 4)
+
+% mettre des exemples de rep(xxx, times=c()) ou rep(..., each=...)
+
+% data.frame se comporte, selon les fonctions, comme une liste ou une matrice.
+% "length" : comme une liste (donne le nombre de colonne)
+% dim : comme une matrice
+
+% unique : mettre dans les set.
+
+% une liste peut être étendue avec un index supérieur à sa longeur... faire
+% systématiquement le point sur ces différents aspects
+
+% ggplot2 ggobi
+
+% expand.grid
+% rle
+
+%% ddply, package plyr
+%% 
+
+% transform, subset
+
+% ftable xtabs by
+
+% diff entre utilisation d'un nom qui n'existe pas dans une liste ou un vecteur :
+% > l <- list()
+% > l["foo"]
+% [[1]]
+% NULL
+% > l <- c(type="forge")
+% > l["type"]
+%    type 
+% "forge" 
+% > l["typedf"]
+% <NA> 
+%   NA 
+
+%  l[1:10] <- 1
+
+% capture.output et chose mentionnée comme see also
+
+% ajuster la taille de la fenêtre
+% options(width = 100)
