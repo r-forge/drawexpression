@@ -358,6 +358,7 @@ plotR("as.data.frame(list(1:3, 11:13))", "dataframe_as_dataframe_from_list.pdf")
 plotR("df$col1", "dataframe_list_like_extraction_1.pdf")
 plotR("df[[\"col1\"]]", "dataframe_list_like_extraction_2.pdf")
 plotR("df[[1]]", "dataframe_list_like_extraction_3.pdf")
+plotR("df[1]", "dataframe_list_like_extraction_4.pdf")
 
 
 
