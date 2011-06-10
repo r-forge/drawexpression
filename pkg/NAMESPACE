@@ -1,5 +1,5 @@
 import("grid");
 
-export(drawExpression, .drawTree, draw.lineBox, draw.functionText, draw.listBox, draw.vectorBox, draw.matrixBox);
+export(drawExpression, .drawTree, draw.lineBox, draw.functionText, draw.listBox, draw.vectorBox, draw.matrixBox, draw.dataframeBox);
 
-export(drawDetails.lineBox, drawDetails.functionText, drawDetails.listBox, drawDetails.vectorBox, drawDetails.matrixBox);
+export(drawDetails.lineBox, drawDetails.functionText, drawDetails.listBox, drawDetails.vectorBox, drawDetails.matrixBox, drawDetails.dataframeBox);
