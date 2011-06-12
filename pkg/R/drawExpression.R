@@ -1,16 +1,9 @@
-## done:
-# data.frame
-# factor
-# $
-# name pour les listes
-# correcting problem of "[,,1]" instead of "[,1]"
-
-
 ## TODO
 # table ne passe pas: is.numeric mais pas is.vector. Passe avec table(x, y) : donne une matrice (TRUE avec is.matrix())
 # quelque chose pour les attributs d'un vector : sinon regexp ne passe pas
 # mettre une première ligne qui donne le code invoqué.
 # : matrice : largeur des colonnes quand les indices sont à deux chiffres
+# subset: argument as formula
 
 library(grid);
 
@@ -230,7 +223,10 @@ drawLineComponent <- function(drawable) {
         return(matrixBoxGrob(drawable$eval));
       } else if (is.array(drawable$eval)) {
         ## TODO good for tapply
-        return(listBoxGrob(as.list(drawable$eval)));
+        #return(listBoxGrob(as.list(drawable$eval)));
+        ## TODO good for margin.table and table.
+        ## not so good for table(): lost its name
+        return(matrixBoxGrob(as.matrix(drawable$eval)));
       } else if (is.factor(drawable$eval)) {
         return(vectorBoxGrob(drawable$eval, a.factor=TRUE));
       } else {
@@ -486,42 +482,46 @@ draw.listBox <- function(l, x=.5, y=.5, height, width, components, comp.height, 
   }
   popViewport();
 
-  # names
-  margin.vp <- viewport(
-      x=width * .5,
-      y=content.height + marginheight * .5,
-      width=width,
-      height=marginheight
-      );
-  pushViewport(margin.vp);
-  grid.rect(gp=gpar(fill="lightgray", lwd=0))
-  if (draw.names) {
-    #y <- marginheight * .5;
-    y <- marginheight ;
-   # if (draw.index) {
-   #   y <- (marginheight - unit(1, "lines")) * .5;
-   # }
-    for (j in 1:length(l)) {
-      grid.text(names(l)[j],
-          y=y,
-          x=sum(comp.width[1:j]) + unit(2, "mm") * (j-1) + unit(2, "mm") * .5,
-          #hjust="center",
-          vjust="bottom",
-          just="right",
-          rot=60
-          );
+# names
+  if (draw.names | draw.index) {
+    margin.vp <- viewport(
+        x=width * .5,
+        y=content.height + marginheight * .5,
+        width=width,
+        height=marginheight
+        );
+    pushViewport(margin.vp);
+    grid.rect(gp=gpar(fill="lightgray", lwd=0))
+      if (draw.names) {
+#y <- marginheight * .5;
+        y <- marginheight ;
+# if (draw.index) {
+#   y <- (marginheight - unit(1, "lines")) * .5;
+# }
+        for (j in 1:length(l)) {
+          x <- unit(4, "mm") * j - unit(2, "mm") + sum(comp.width[1:j]) - comp.width[j] * 0.5;
+          grid.text(names(l)[j],
+              y=y,
+              x=x,
+#hjust="center",
+              vjust="bottom",
+              just="right",
+              rot=60
+              );
+        }
+      }
+    if (draw.index) {
+      for (j in 1:length(l)) {
+          x <- unit(4, "mm") * j - unit(2, "mm") + sum(comp.width[1:j]) - comp.width[j] * 0.5;
+        grid.text(j,
+            y=unit(1, "lines") * .5,
+            x=x,
+            just="right"
+            );
+      }
     }
+    popViewport();
   }
-  if (draw.index) {
-    for (j in 1:length(l)) {
-      grid.text(j,
-          y=unit(1, "lines") * .5,
-          x=sum(comp.width[1:j]) + unit(2, "mm") * (j-1) + unit(2, "mm") * .5,
-          just="right"
-          );
-    }
-  }
-  popViewport();
 
 
   popViewport();
