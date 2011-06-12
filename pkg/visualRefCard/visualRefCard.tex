@@ -18,6 +18,8 @@ Laboratoire Modyco (CNRS/Universit\'e Paris Ouest Nanterre La D\'efense)
 
 Universit\'e de Caen--Basse Normandie
 
+\tableofcontents
+
 \section{Graphical conventions}
 % ----------------------------
 
@@ -33,7 +35,10 @@ The first line represent the expression you typed in, the last line give the
 object eventually created, and each intermediary line is a step in the
 evaluation of the expression.
 
-\section{Anatomy of a vector}
+\section{vector}
+% ----------------------------
+
+\subsection{Anatomy of a vector}
 % ----------------------------
 
 All elements of a vector have a common mode, one of character, logical, and numeric.
@@ -61,7 +66,7 @@ Functions are precisly defined in terms of mode, number and length of vectors th
 \item mode() take one vector of any mode and length and return a character vector of length 1.
 \end{enumerate}
 
-\section{Creating a vector}
+\subsection{Creating a vector}
 % ----------------------------
 
 \begin{tabular}{cc}
@@ -73,7 +78,7 @@ Functions are precisly defined in terms of mode, number and length of vectors th
 
 The function c() take any number of vectors of any length and any mode, but all vectors must have the same mode (see below, "Conversion"). It returns a vector of the same mode as the arguments and whose length is the sum of the length of its arguments.
 
-\section{Extraction}
+\subsection{Extraction}
 % ----------------------------
 
 A vector can be created by extracting some elements of a vector.
@@ -105,7 +110,7 @@ When extracting, nothing prevent you from reordering elements or extracting  sev
 
 \includegraphics{extract_repeating}
 
-\section{Operator}
+\subsection{Operator}
 % ----------------------------
 
 Some numeric operators.
@@ -122,7 +127,7 @@ Some logical operators.
 \includegraphics{operator_equality_log} & \includegraphics{operator_equality_char}\\
 \end{tabular}
 
-\section{Vectorization}
+\subsection{Vectorization}
 % ----------------------------
 
 Operators -- as well as many functions -- may operate on vector of any length: the operation is performed on pair of elements of equal index.
@@ -131,7 +136,7 @@ Operators -- as well as many functions -- may operate on vector of any length: t
 \includegraphics{operator_plus_vectorized} & \includegraphics{operator_equal_vectorized}\\
 \end{tabular}
 
-\section{Recycling}
+\subsection{Recycling}
 % ----------------------------
 
 In a context where vectorization is allowed, you may provide vectors of unequal length. The shorter is duplicated until its length reach the length of the longer. This is called recycling a vector.
@@ -147,7 +152,7 @@ Be careful:
 
 \includegraphics{operator_recycling}
 
-\section{Some numeric functions}
+\subsection{Some numeric functions}
 % ----------------------------
 
 Some functions for numeric vectors.
@@ -162,7 +167,7 @@ Some functions for numeric vectors.
 
 %\includegraphics{crossprod}
 
-\section{Some string functions}
+\subsection{Some string functions}
 % ----------------------------
 
 nchar() count the number of characters in all strings of a character vector.
@@ -180,7 +185,7 @@ You can paste more than two vectors of characters:
 
 \includegraphics{paste5}
 
-\section{Sorting}
+\subsection{Sorting}
 % ----------------------------
 
 Numeric and character vectors can be sorted. Names are preserved.
@@ -194,7 +199,7 @@ Flipping a vector:
 
 \includegraphics{rev}
 
-\section{Type conversion}
+\subsection{Type conversion}
 % ----------------------------
 
 c() coerce its arguments to a common mode -- all elements of a vector always
@@ -219,7 +224,7 @@ explicitly converting into characters, using as.character() (right).
 \includegraphics{conversion_nchar} & \includegraphics{conversion_as_character}\\
 \end{tabular}
 
-\section{Index}
+\subsection{Index}
 % ----------------------------
 
 Some useful functions give index rather than the actual values.
@@ -256,7 +261,7 @@ index of the row sorted. Order is commonly used for reordering data structure:
 \includegraphics{matrix_order}
 \end{tabular}
 
-\section{Precedence}
+\section{Operator precedence}
 % ----------------------------
 
 Operators have precedence (see ?Syntax).
@@ -697,6 +702,46 @@ TODO
 
 
 % TODO
+
+% Traitement par lot/groupe
+% split, tapply...
+
+% Chaine
+% paste collapse, strsplit, substr... (ex. de la récupération d'une modalité EC/OR) etc.
+
+% factor (pourquoi as.numeric ne fera pas la même chose q'un vecteur character).
+% Il y a aussi unique() pour avoir les valeurs que donnent level()
+% Attention au fait que level() n'est pas mis à jour si on prend seulement un sous vecteur avec une modalité...
+
+%> x <- c("1", "10", "50")
+%> as.numeric(x)
+%[1]  1 10 50
+%> y <- factor(x)
+%> y
+%[1] 1  10 50
+%Levels: 1 10 50
+%> as.numeric(y)
+%[1] 1 2 3
+%> as.character(y)
+%[1] "1"  "10" "50"
+
+
+% data frame. 
+% A data frame is a list with the supplementary condition that each slot must contains a vector (an not another list, or a matrix...), and that each vector must have the same length.
+% So, it is a two-dimension structure which allow different type at different column.
+% It is very usefull for storing pieces of information (of different types)  about individuals (in line)
+% - since it is a two-dimensional structure, sub-data frame can be extracted with the two-dimension notation [line, column] :
+
+% ajouter : df[1:2, 1], qui donne un **vecteur** : simplifie quand il le peut
+
+% - since it is a list, a single slot of the list may be extracted with the notation applied to list ($n [[n]], [n])
+% - So, be careful about the result. Some times you get a data frame, some time a vector.
+
+% SECTION PRATIQUE
+% - recodage
+% - section conversion depuis un fichier csv : graphique du fichier -> data.frame resultant. avec sep, na, dec, row.names, header,.
+%readLine
+% - chaîne.
 
 % \section{apply}
 % 
