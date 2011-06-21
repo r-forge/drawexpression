@@ -5,7 +5,7 @@
 # : matrice : largeur des colonnes quand les indices sont à deux chiffres
 # subset: argument as formula
 
-library(grid);
+# TODO : data frame and matrix share too much code
 
 debuging <- FALSE;
 
@@ -26,6 +26,8 @@ drawExpression <- function (expr, draw.index=FALSE, draw.names=FALSE, filename=N
 
   ## Create an intermediary representation
   drawable <- .drawableTree(e[[1]], 1);
+
+  plot.new();
 
   ## draw this representation with grid function
   .drawTree(drawable, filename=filename);
@@ -345,7 +347,7 @@ objectGrob <- function(obj) {
 }
 
 ############## ############## ############## ############## ##############
-# Draw a line of code
+# Draw a line in the graphic
 ############## ############## ############## ############## ##############
 
 draw.lineBox <- function(l, x=.5, y=.5, height, width, components, comp.height, comp.width, draw.index=FALSE, draw.names=FALSE, margin) {
@@ -390,7 +392,8 @@ lineBoxGrob <- function(l, draw.index=FALSE, draw.names=FALSE, margin=2) {
 }
 
 # level is the current level in the syntax tree, nlevel the total number of levels
-drawDetails.lineBox <- function(x, level, nlevel, ...) {
+# , level, nlevel, ...
+drawDetails.lineBox <- function(x, recording) {
   draw.lineBox(x$labels, x$x, x$y, x$height, x$width, x$components, x$comp.height, x$comp.width, margin=x$margin);
 }
 
