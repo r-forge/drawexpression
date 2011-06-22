@@ -1,5 +1,10 @@
 import("grid");
 
-export(drawExpression, .drawTree, draw.lineBox, draw.functionText, draw.listBox, draw.vectorBox, draw.matrixBox, draw.dataframeBox);
+export(drawExpression)
 
-export(drawDetails.lineBox, drawDetails.functionText, drawDetails.listBox, drawDetails.vectorBox, drawDetails.matrixBox, drawDetails.dataframeBox);
+S3method(drawDetails, lineBox);
+S3method(drawDetails, functionText);
+S3method(drawDetails, listBox);
+S3method(drawDetails, vectorBox);
+S3method(drawDetails, matrixBox);
+S3method(drawDetails, dataframeBox);
