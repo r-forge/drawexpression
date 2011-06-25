@@ -1,14 +1,52 @@
 ## TODO
-# table ne passe pas: is.numeric mais pas is.vector. Passe avec table(x, y) : donne une matrice (TRUE avec is.matrix())
-# quelque chose pour les attributs d'un vector : sinon regexp ne passe pas
-# mettre une première ligne qui donne le code invoqué.
-# : matrice : largeur des colonnes quand les indices sont à deux chiffres
-# subset: argument as formula
 
-# TODO : data frame and matrix share too much code
+# "table" object doesn't work: table is numeric but not vector. table(x, y) give a matrice (is.matrix()->TRUE)
+# dealing with formula object?
+#   subset: argument as formula
+# do something for the attributes of a vector
+#  (eg. for regexp functions...)
+
+# Add the original code on a first line?
+# matrice : problem with column width when indices are two number length
+# data frame and matrix share too much code
+
+#I'm wondering if I shouldn't automatically shorten vectors and matrixes when
+#they are two long. For instances, for vectors longer than six elements, add a
+#"..." as sixth element. I will make clearer the emphasis on the steps of the
+#evaluation of the expression.
+
+
+# by Hadley Wickham <hadley@rice.edu> :
+
+# It would be great if drawExpression distinguished between vectors and
+# single row matrices:
+# 
+# library(drawExpression)
+# 
+# a <- 1:5
+# b <- matrix(1:5, nrow = 1)
+# drawExpression("list(a, b)")
+# 
+# # And arrays don't seem to work in a list:
+# 
+# c <- array(1:5, c(1, 5, 1))
+# drawExpression("list(a, b, c)")
+# 
+# drawExpression("c") # works, but drawn in wrong direction
+#
+# Thanks for the drawExpression package - it looks really great.  A few comments:
+# 
+# * Have you thought about visualising the non-evaluated expressions?
+# i.e. just show the parse tree?  I've attached the R code I use to draw
+# them as text, but it would be much nicer to draw them as graphics.
+# 
+# * I think drawExpression should accept calls as well as strings - so
+# you can do (e.g.) drawExpression(quote(a + b * c))
+# 
+# * When a matrix has row/column names, I think you should just show
+# them, not show the indices as well.
 
 debuging <- FALSE;
-
 
 ##
 ## The public method
@@ -32,7 +70,7 @@ drawExpression <- function (expr, draw.index=FALSE, draw.names=FALSE, filename=N
   ## Create an intermediary representation
   drawable <- .drawableTree(e[[1]], 1);
 
-print(drawable);
+#print(drawable);
   plot.new();
 
   ## draw this representation with grid function
