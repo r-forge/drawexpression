@@ -9,6 +9,11 @@
 
 debuging <- FALSE;
 
+
+##
+## The public method
+##
+
 drawExpression <- function (expr, draw.index=FALSE, draw.names=FALSE, filename=NULL) {
   if (mode(expr) != "character") {
     stop("expr must be a characters string");
@@ -27,6 +32,7 @@ drawExpression <- function (expr, draw.index=FALSE, draw.names=FALSE, filename=N
   ## Create an intermediary representation
   drawable <- .drawableTree(e[[1]], 1);
 
+print(drawable);
   plot.new();
 
   ## draw this representation with grid function
@@ -38,19 +44,143 @@ drawExpression <- function (expr, draw.index=FALSE, draw.names=FALSE, filename=N
 ########################################################
 
 # ---------------------------------
-# Walk recursively through the syntax tree and populate the "drawable tree"
-# structure accordingly.
+#
+# Walk recursively through the syntax tree and create and transform it into a
+# tree ready for drawing. Some representations used in the parse tree are
+# transformed into more traditionnal (and concrete) representation; for
+# instance the leaves "+ 1 2" are reordened into the more classical "1 + 2".
 #
 # param
-# -----
+#
 # call: the syntax tree.
 # level: the level in the tree (1-based)
 #
 # value
-# -----
-# A list which is the root node of the tree. Each node in the tree is a nammed
-# list; children of a node are listed in the "$children" entry of the node.
+#
+# A list reflecting the parse tree.
+#
+# The list contains the following components:
+# $eval = the result of the evaluation of the expression
+# $type = a character string
+# $level = the level in the parse tree (1 = root)
+# $children = a list containing a list for each member of the expression. These inner list are
+#            also structured with the component $eval, $type, $level, $children, and they are
+#            produced by recursively calling .drawableTree.
+#
+# For instance, the expression  "c(1, 2) + 2" submitted to drawExpression()
+# produce the following list (in version 1.0 of drawExpression):
+#
+# $eval
+# [1] 3 4
+# 
+# $type
+# [1] ""
+# 
+# $level
+# [1] 1
+# 
+# $children
+# $children[[1]]
+# $children[[1]]$eval
+# [1] 1 2
+# 
+# $children[[1]]$type
+# [1] ""
+# 
+# $children[[1]]$level
+# [1] 2
+# 
+# $children[[1]]$children
+# $children[[1]]$children[[1]]
+# $children[[1]]$children[[1]]$eval
+# [1] "c"
+# 
+# $children[[1]]$children[[1]]$type
+# [1] "special"
+# 
+# $children[[1]]$children[[1]]$level
+# [1] 3
+# 
+# 
+# $children[[1]]$children[[2]]
+# $children[[1]]$children[[2]]$eval
+# [1] "("
+# 
+# $children[[1]]$children[[2]]$type
+# [1] "special"
+# 
+# $children[[1]]$children[[2]]$level
+# [1] 3
+# 
+# 
+# $children[[1]]$children[[3]]
+# $children[[1]]$children[[3]]$eval
+# [1] 1
+# 
+# $children[[1]]$children[[3]]$type
+# [1] ""
+# 
+# $children[[1]]$children[[3]]$level
+# [1] 3
+# 
+# 
+# $children[[1]]$children[[4]]
+# $children[[1]]$children[[4]]$eval
+# [1] ","
+# 
+# $children[[1]]$children[[4]]$type
+# [1] "special"
+# 
+# $children[[1]]$children[[4]]$level
+# [1] 3
+# 
+# 
+# $children[[1]]$children[[5]]
+# $children[[1]]$children[[5]]$eval
+# [1] 2
+# 
+# $children[[1]]$children[[5]]$type
+# [1] ""
+# 
+# $children[[1]]$children[[5]]$level
+# [1] 3
+# 
+# 
+# $children[[1]]$children[[6]]
+# $children[[1]]$children[[6]]$eval
+# [1] ")"
+# 
+# $children[[1]]$children[[6]]$type
+# [1] "special"
+# 
+# $children[[1]]$children[[6]]$level
+# [1] 3
+# 
+# 
+# 
+# 
+# $children[[2]]
+# $children[[2]]$eval
+# [1] "+"
+# 
+# $children[[2]]$type
+# [1] "special"
+# 
+# $children[[2]]$level
+# [1] 2
+# 
+# 
+# $children[[3]]
+# $children[[3]]$eval
+# [1] 2
+# 
+# $children[[3]]$type
+# [1] ""
+# 
+# $children[[3]]$level
+# [1] 2
 # ---------------------------------
+
 .drawableTree <- function(call, level) {
   #mode(call) may be name, call, or primitive (numeric, etc.).
   l <- list();
@@ -124,7 +254,6 @@ drawExpression <- function (expr, draw.index=FALSE, draw.names=FALSE, filename=N
             children[[i + offset]] <- makeParam(names(call[i]), level + 1);
             offset = offset + 1;
           }
-
 # This argument is a function, handle it nicely.
         if (mode(eval(call[[i]])) == "function") {
           children[[i + offset]] <- makeFunction(as.character(call[[i]]), level + 1);
@@ -322,10 +451,6 @@ getMaxHeightForRaw <- function(drawable, level, height) {
 # add margin
   height <- height + 0.005;
 }
-
-############## ############## ############## ############## ##############
-############## ############## ############## ############## ##############
-############## ############## ############## ############## ##############
 
 ############## ############## ############## ############## ##############
 # grid object (Grob)
